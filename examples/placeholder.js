@@ -17,8 +17,15 @@ citation.innerText = incorrect_array[current];
 
 // Logs the correct citation so it can be pasted into the input for easy testing
 if (debug_mode){
-    console.log(citation);
+    console.log(correct_array[current]);
     }
+
+resetButton.addEventListener('click', () => {
+    if (debug_mode){
+        console.log("reset");
+    }
+    attempt.innerText = incorrect_array[current];
+});
 
 submitButton.addEventListener('click', () => {
     // TODO: need to add class check to make sure they are active 
@@ -33,6 +40,9 @@ submitButton.addEventListener('click', () => {
         }
         attempt.innerText = incorrect_array[current];
         citation.innerText = incorrect_array[current];
+        if (debug_mode){
+            console.log(correct_array[current]);
+            }
     }
     else if (attempt.innerText == citation.innerText) {
         if (debug_mode){
