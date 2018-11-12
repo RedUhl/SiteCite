@@ -1,5 +1,6 @@
 // will be database suplemented
 let hint = ["Just do it like that, but better", "Just do it, man", "HOW MANY TIMES DO I HAVE TO TELL YOU OLD MAN!!!"]
+let hintVal = 0;
 let current = 0;
 let correct_array = ["Agius, N. M., & Wilkinson, A. (2014). Students' and teachers' views of written feedback at undergraduate level: A literature review. Nurse Education Today, 34, 552-559. doi:10.1016/j.nedt.2013.07.005", "Bang, H. J. (2013). Reliability of National Writing Project’s Analytic Writing Continuum assessment system. Journal of Writing Assessment, 6, 13-24.", "Yancey, K. B. (1999). Looking back as we look forward: Historicizing writing assessment. College Composition and Communication, 50, 483-503. doi:10.2307/358862"];
 let incorrect_array = ["Agius, N. M., & Wilkinson, A. (2014) Students' and teachers' views of written feedback at undergraduate level: A literature review. Nurse Education Today: 34, 552-559. DOI:10.1016/j.nedt.2013.07.005", "Bang, H. J. (2013), Reliability of National Writing Project’s Analytic Writing Continuum assessment system. Journal Of Writing assessment. 6, 13-24.", "Yancey, K. B.(1999). Looking back as we look forward: Historicizing writing assessment, College Composition and Communication. 50, 483-503. doi:10.2307/358862"];
@@ -10,6 +11,7 @@ let num_cites = 3;
 
 var attempt = document.getElementById("attempt");
 var citation = document.getElementById("citation");
+var hints = document.getElementById("hints");
 
 // updating these here so they start w correct value
 attempt.innerText = incorrect_array[current];
@@ -23,6 +25,7 @@ citation.innerText = incorrect_array[current];
 const modal = document.querySelector('#my-modal');
 const modalBtn = document.querySelector('#modal-btn');
 const closeBtn = document.querySelector('.close');
+
 
 // Events
 if (debug_mode) {
@@ -43,10 +46,14 @@ window.addEventListener('click', (e) => {
 });
 
 hintButton.addEventListener('click', () => {
-    if (debug_mode) {
-        console.log("hint displayed");
+    if (hintVal < hint.length) {
+        if (debug_mode) {
+            hints.innerText = hint[hintVal];
+            hintVal += 1;
+        }
+    } else {
+        hintVal = 0;
     }
-    hint.style.display = 'block';
 });
 
 resetButton.addEventListener('click', () => {
@@ -102,3 +109,7 @@ reportButton.addEventListener('click', () => {
         console.log("report");
     }
 });
+
+function newFunction() {
+    console.log('looped');
+}
