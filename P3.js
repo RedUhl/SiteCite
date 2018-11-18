@@ -46,8 +46,10 @@ window.addEventListener('click', (e) => {
 });
 
 hintButton.addEventListener('click', () => {
+
     if (hintVal < hint.length) {
         if (debug_mode) {
+            hints.style.visibility = true;
             hints.innerText = hint[hintVal];
             hintVal += 1;
         }
