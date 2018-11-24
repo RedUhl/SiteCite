@@ -52,6 +52,15 @@ main.content .btn {
   color: #160f0f;
   background-color: #9555AF;
 }
+main.content #hintOne {
+  visibility: hidden;
+}
+main.content #hintTwo {
+  visibility: hidden;
+}
+main.content #hintThree {
+  visibility: hidden;
+}
 
 aside {
   position: fixed;

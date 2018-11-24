@@ -10,8 +10,6 @@
 </head>
 
 <body>
-
-
     <header class="d-flex align-items-center bg-white fixed-top px-3">
         <button class="hamburger-btn btn mr-3" onclick="document.getElementById('side-menu').classList.toggle('open')">
       <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style="pointer-events: none; display: block; width: 24px; height: 24px;">
@@ -83,66 +81,52 @@
                         </div>
                     </div>
                 </div>
-                <div class="video-row">
-                    <div class="video-row-title my-4 ml-1">
-                        <h3>Attempt</h3>
-                    </div>
-                    <div class="d-flex pb-5">
-                        <div class="col px-1">
-                            <div class="video">
-                                <div id="attempt" class="graph">
 
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
                 <!-- TODO: make this form editable -->
-                <form action="" id="attempt" class="main-form needs-validation" novalidate>
-                    <label for="attempt">Correct the citation</label>
-                    <div class="toolbar">
-                        <!-- TODO: get this to work again -->
-                        <button class="btn" type="button" onclick="document.execCommand('italic', false, '');">I
-                            </button>
-                    </div>
-                    <!-- //TODO:get form to take attempt id as placeholder -->
-                    <input type="text" id="citationAttempt" contenteditable="true" class="form-control" required>
+                <label for="attempt">Correct the citation</label>
+                <div class="toolbar">
+                    <!-- TODO: get this to work again -->
+                    <button class="btn" type="button" onclick="document.execCommand('italic', false, '');">I
+                            </button></div>
+                <form class="main-form needs-validation" novalidate>
+                    <input type="text" id="incorrect_array" contenteditable="true" class="form-control" required>
                     <div class="invalid-feedback">Incorrect</div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="resetButton" class="btn btn-secondary">Reset</button>
-                    <!-- TODO: sync hints with the alert box -->
-                    <button id="hintButton" type="button" class="btn btn-secondary">Hint</button>
-                    <div id="hint" class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Hint</h4>
-                        <hr>
-                        <p class="mb-0"></p>
-                    </div>
+
+                    <button id="submitBtn" type="button" class="btn btn-primary">Submit</button>
+
+
                 </form>
+                <button id="resetBtn" type="button" class="btn btn-secondary">Reset</button>
+                <button id="hintButton" type="button" class="btn btn-secondary">Hint</button>
+
+                <!-- Hints -->
+                <div id="hintOne" class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Hint</h4>
+                    <hr>
+                    <p class="mb-0"></p>
+                </div>
+                <div id="hintTwo" class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Hint</h4>
+                    <hr>
+                    <p class="mb-0"></p>
+                </div>
+                <div id="hintThree" class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Hint</h4>
+                    <hr>
+                    <p class="mb-0"></p>
+                </div>
+
             </div>
-    </div>
-    </div>
-    </div>
-    </main>
-    <div class="side-menu-backdrop" onclick="document.getElementById('side-menu').classList.toggle('open')"></div>
+        </main>
+        <div class="side-menu-backdrop" onclick="document.getElementById('side-menu').classList.toggle('open')"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="js/bootstrap.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="home.js"></script>
     <script src="P3.js"></script>
-    <script>
-        //     prevents page from reloading when validating 
-        //    TODO: figure out how to validate 
-        var form = document.querySelector('.needs-validation');
-        form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-        })
-    </script>
+
+
 </body>
 
 </html>
