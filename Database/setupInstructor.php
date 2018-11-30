@@ -6,7 +6,7 @@
 	function setupInstructor()
 	{
 		$query = "CREATE TABLE Instructors (
-		instructorID INTERGER NOT NULL UNIQUE,
+		instructorID INTEGER NOT NULL UNIQUE,
 		instructorname varchar(100) NOT NULL
 		)";
 		
