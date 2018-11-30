@@ -6,7 +6,7 @@
 	function setupcitations()
 	{
 		$query = "CREATE TABLE Citations (
-		citationID INTERGER NOT NULL UNIQUE,
+		citationID INTEGER NOT NULL UNIQUE,
 		citation varchar(500) NOT NULL,
 		reportcount SHORTINT NOT NULL
 		)";
