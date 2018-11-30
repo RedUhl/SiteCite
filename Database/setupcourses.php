@@ -6,8 +6,8 @@
 	function setupcourses()
 	{
 		$query = "CREATE TABLE Courses (
-		courseID INTERGER NOT NULL UNIQUE,
-		instructorID INTERGER NOT NULL,
+		courseID INTEGER NOT NULL UNIQUE,
+		instructorID INTEGER NOT NULL,
 		coursecode varchar(25) NOT NULL UNIQUE,
 		coursename varchar(100) NOT NULL
 		)";
