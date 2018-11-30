@@ -8,7 +8,7 @@
 		$query = "CREATE TABLE Citations (
 		citationID INTEGER NOT NULL UNIQUE,
 		citation varchar(500) NOT NULL,
-		reportcount SHORTINT NOT NULL
+		reportcount SMALLINT NOT NULL
 		)";
 
 		$result = $conn->query($query);
