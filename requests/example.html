@@ -9,6 +9,8 @@
    <div id = "main" class="main">
       <div style="border: thin pink solid;" id="incorrect"> Citation </div>
       <div style="border: thin pink solid;" id="citeButton" class="unselectable button"> Request Citation</div>
+      <div style="border: thin cyan solid;" id="course"> Course </div>
+      <div style="border: thin cyan solid;" id="courseButton" class="unselectable button"> Select Course</div>
       <div style="border: thin teal solid;" id="debug"> Debug info </div>
       <div style="border: thin teal solid;" id="debugButton" class="unselectable button"> Request Debug </div>
    </div>
@@ -16,29 +18,43 @@
 <script type="text/javascript">
    let incorrect = document.getElementById('incorrect');
    let debug = document.getElementById('debug');
+   let course = document.getElementById('course');
    let debugButton = document.getElementById('debugButton');
    let citeButton = document.getElementById('citeButton');
+   let courseButton = document.getElementById('courseButton');
 
-   debugButton.addEventListener("click",(evt)=>{
-      var requestdebug = new XMLHttpRequest();
-      requestdebug.open('POST', 'example.php', true);
-      requestdebug.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-      requestdebug.addEventListener("load",(evt)=>{
-         debug.innerText = (requestdebug.responseText);
-         console.log(requestdebug.responseText);
-      });      
-      requestdebug.send("debug="+"debug");
-   });
-
-   citeButton.addEventListener("click",(evt)=>{
+   function create_request(constructed_request, callback){
       var request = new XMLHttpRequest();
       request.open('POST', 'example.php', true);
       request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
       request.addEventListener("load",(evt)=>{
-         incorrect.innerHTML = (request.responseText);
+         //debug.innerText = (request.responseText);
+         callback(request.responseText);
          console.log(request.responseText);
       });      
-      request.send("return="+"return");
+      request.send(constructed_request);
+   }
+
+   debugButton.addEventListener("click",(evt)=>{
+      let constructed_request = "debug=debug";
+      let returned_data = create_request(constructed_request, (returned_data)=>{
+         debug.innerHTML = returned_data;
+      });
    });
+
+   citeButton.addEventListener("click",(evt)=>{
+      let constructed_request = "return=return";
+      let returned_data = create_request(constructed_request, (returned_data)=>{
+         incorrect.innerHTML = returned_data;
+      });
+   });
+
+   courseButton.addEventListener("click",(evt)=>{
+      let constructed_request = "return=return";
+      let returned_data = create_request(constructed_request, (returned_data)=>{
+         course.innerHTML = returned_data;
+      });
+   });
+
 </script>
 </html>
