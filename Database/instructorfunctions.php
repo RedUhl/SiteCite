@@ -37,5 +37,18 @@ function InsertInstructor($iID, $iname)
 	if(!$result) die($connection->error);
 }
 
+function getInstructorname($iID)
+{
+	$query = "SELECT instructorname FROM Instructor WHERE instructorID='$iID' ";
+    $result = executeQuery($query);
+    return $result;
+
+}
+
+function deleteInstructor($iID)
+{
+	$query = "DELETE FROM Instructor WHERE product_id = 'iID'";
+	$result = executeQuery($query);
+}
 
 ?>

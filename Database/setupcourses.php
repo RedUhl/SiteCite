@@ -7,9 +7,10 @@
 	{
 		$query = "CREATE TABLE Courses (
 		courseID INTEGER NOT NULL UNIQUE,
-		instructorID INTEGER NOT NULL,
-		coursecode varchar(25) NOT NULL UNIQUE,
-		coursename varchar(100) NOT NULL
+		instructorID VARCHAR(7) NOT NULL,
+		coursecode VARCHAR(25) NOT NULL UNIQUE,
+		coursename VARCHAR(100) NOT NULL,
+		assignment SMALLINT
 		)";
 
 		$result = $conn->query($query);

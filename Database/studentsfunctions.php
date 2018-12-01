@@ -37,5 +37,44 @@ function InsertCourses($sID, $name, $cID, $ccitations, $cscore, $oscore, $pscore
 	if(!$result) die($connection->error);
 }
 
+function getStudentscore($sID)
+{
+
+}
+
+function getStudentname($sID)
+{
+
+}
+
+function setAssignmentnumber($sID, $assignnum)
+{
+
+}
+
+function setStudentscore($sID, $score, $scorenum)
+{
+
+}
+
+function getAssignmentnumber($sID)
+{
+
+}
+
+function deleteStudent($sID)
+{
+
+}
+
+function getStudentclass($sID)
+{
+
+}
+
+function getClassscores($cID)
+{
+
+}
 
 ?>

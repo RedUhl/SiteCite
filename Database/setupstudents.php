@@ -6,7 +6,7 @@
 	function setupstudents()
 	{
 		$query = "CREATE TABLE Students (
-		studentID INTEGER NOT NULL UNIQUE,
+		studentID VARCHAR(7) NOT NULL UNIQUE,
 		name VARCHAR(100) NOT NULL,
 		courseID MEDIUMINT NOT NULL,
 		completedcitations MEDIUMINT NOT NULL,

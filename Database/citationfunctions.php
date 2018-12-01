@@ -37,5 +37,49 @@ function InsertCitations($cID, $citation, $reportcount)
 	if(!$result) die($connection->error);
 }
 
+function getCitation($cID)
+{
+	$query="SELECT citation FROM Citations WHERE citationID='$cID'";
+	$result=executeQuery($query);
+	return $result;
+}
+
+function getReportcount($cID)
+{
+	$query="SELECT reportcount FROM Citations WHERE citationID='$cID'";
+	$result=executeQuery($query);
+	return $result;
+
+}
+
+function setReportcount($cID,$reportnum)
+{
+	$query= "UPDATE Citations SET reportcount = '$reportnum' WHERE product_id = '$cID'";
+	$result=executeQuery($query);
+
+}
+
+function deleteCitation($cID)
+{
+	$query="DELETE FROM Citations WHERE citationID = '$cID'";
+	$result=executeQuery($query);
+
+}
+
+function countCitations()
+{
+	$returnValue = array();
+        
+    $query = "SELECT DISTINCT citationID FROM Citations";
+    $result = executeQuery($query);
+        
+    // The result set only contains one column (category) so return
+    // just an array, not an associative array.
+    foreach ($result as $row){
+		$returnValue[] = $row['category'];
+    }
+        
+    return $returnValue;
+}
 
 ?>
