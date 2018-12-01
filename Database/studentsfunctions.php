@@ -92,4 +92,12 @@ function getClassscores($cID)
 	return $result;
 }
 
+function getAuthToken($sID)
+{
+	$query="SELECT token FROM Students WHERE studentID='$sID'";
+	$result=executeQuery($query);
+	return $result;
+
+}
+
 ?>

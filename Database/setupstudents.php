@@ -8,6 +8,7 @@
 		$query = "CREATE TABLE Students (
 		studentID VARCHAR(7) NOT NULL UNIQUE,
 		name VARCHAR(100) NOT NULL,
+		token VARCHAR(256) NOT NULL,
 		courseID MEDIUMINT NOT NULL,
 		completedcitations MEDIUMINT NOT NULL,
 		capitalizationscore SMALLINT NOT NULL,
