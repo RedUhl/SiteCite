@@ -1,0 +1,35 @@
+
+body {
+    position: relative;
+    font-size: 2em;
+    background: #ededed; 
+
+}
+
+.main {
+    display: grid; 
+    grid-gap: .25em .5em;
+    max-width: 100%;
+    max-height: 100%;
+    grid-template-rows: repeat(auto-fit,minmax(2em,2fr));
+
+}
+
+.button{
+   margin: auto;
+   background-color: #6d5e6d;
+   color: #ededed;
+   text-align: center; 
+   padding: .5%;
+   border: 1px solid #708087;
+   border-radius: 10px;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
