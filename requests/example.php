@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-$punctuations = array("'", ",", ".", "(", ")",":",";", "-", "/");
-// Cap, Format, Order, Punc
-$probability = array(.25, .25, .25, .25);
-// [5] is checksum
-$error_array = array(0, 0, 0, 0, 0);
-
 function devOpenDb($hostname,$uid,$pwd,$database){
   $link = mysql_connect($hostname,$uid,$pwd);
   if($link && mysql_select_db($database)){
@@ -32,13 +26,18 @@ function executeQuery($link,$sql){
 }
 
 if (isset($_POST['return']) && $_POST['return'] == "return") {
-  $random_cite = rand(0,15);
+  $random_cite = rand(2,15);
   $sql = " SELECT citation FROM Citations WHERE citationID=".$random_cite;
   executeQuery($dblink, $sql);
 }
 
+if (isset($_POST['course']) && $_POST['course'] == "course") {
+  $sql = " SELECT courseName, courseCode FROM Courses";
+  $result = executeQuery($dblink, $sql);
+}
+
 if (isset($_POST['debug']) && $_POST['debug'] == "debug") {
-  $debuginfo = devOpenDb("localhost","wbf49","ab1234","wbf49");
+  $debuginfo = devOpenDb("localhost","kenna","swarch2018","citerite");
   echo $debuginfo;
 }
 
