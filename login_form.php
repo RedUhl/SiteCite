@@ -57,14 +57,16 @@
         background-color: #660000;
     }
     .main-section{
+
         margin: 0 auto;
-        margin-top: 130px;
+        margin-top: 230px;
         padding: 0;
     }
-    modal-content{
-        background-color: #3b4650;
+    .modal-content{
+        background-color: #fff;
         opacity: .95;
         padding: 0 18px;
+        padding-bottom: 20px;
         box-shadow: 0px 0px 3px #848484;
     }
     .user-img{
@@ -125,7 +127,7 @@
 </head>
 <body>
     <div class="modal-dialog text-center">
-        <div class ="col-sm-8-section">
+        <div class ="col-sm-8 main-section">
             <div class="modal-content">
                 <div class="col-12 user-img">
                     <img src="img/module_table_botto.png">
