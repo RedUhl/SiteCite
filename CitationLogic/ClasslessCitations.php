@@ -22,11 +22,11 @@ function getDummyCitation1()
 
 
 	// Year
-	$citation['Year'] = array('Open'=>'(', 'Number'=>'2000', 'Close'=>'). ');
+	$citation['Year'] = array('Open'=>'(', 'Number'=>'2000', 'Close'=>').');
 
 
 	// Article Title
-	$citation['Title'] = array('FKey'=>'', 'Text'=>'Beyond the red pen: Clarifying our role in the response process', 'BKey'=>'.');
+	$citation['Title'] = array('FKey'=>' ', 'Text'=>'Beyond the red pen: Clarifying our role in the response process', 'BKey'=>'.');
 
 
 	// Journal

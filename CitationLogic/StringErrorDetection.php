@@ -147,9 +147,9 @@ function ed_test($incorrect, $correct)
 	$errors = findStringErrors($incorrect, $correct);
 	$instructs = flipErrors($errors);
 	
-	printMatrix($matrix);
-	printMatrix($errors);
-	printMatrix($instructs);
+	print_matrix($matrix);
+	print_matrix($errors);
+	print_matrix($instructs);
 	echo "<br>";
 }
 
