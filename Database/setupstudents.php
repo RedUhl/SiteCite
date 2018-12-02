@@ -14,7 +14,8 @@
 		capitalizationscore SMALLINT NOT NULL,
 		orderingscore SMALLINT NOT NULL,
 		punctuationscore SMALLINT NOT NULL,
-		formatingscore SMALLINT NOT NULL
+		formatingscore SMALLINT NOT NULL,
+    PRIMARY KEY(studentID)
 		)";
 
 		$result = $conn->query($query);

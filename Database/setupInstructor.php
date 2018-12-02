@@ -7,9 +7,11 @@
 	{
 		$query = "CREATE TABLE Instructors (
 		instructorID varchar(7) NOT NULL UNIQUE,
-		instructorname varchar(100) NOT NULL
+		instructorname varchar(100) NOT NULL,
+		PRIMARY KEY(instructorID)
+
 		)";
-		
+
 		$result = $conn->query($query);
 		if (!$result) {
 		$conn->close();
