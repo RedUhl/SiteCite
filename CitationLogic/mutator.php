@@ -206,8 +206,8 @@ function messformat($citation)
 	return $citation;
 }
 
-$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
+//$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
 
-$result = mutator($citation);
-echo $result;
+//$result = mutator($citation);
+//echo $result;
 ?>
