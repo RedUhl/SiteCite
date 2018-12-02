@@ -34,17 +34,6 @@ citation.innerText = incorrect_array[current];
 
 // Logs the correct citation so it can be pasted into the input for easy testing
 
-function create_request(constructed_request, callback){
-   var request = new XMLHttpRequest();
-   request.open('POST', 'example.php', true);
-   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-   request.addEventListener("load",(evt)=>{
-      //debug.innerText = (request.responseText);
-      callback(request.responseText);
-      console.log(request.responseText);
-   });      
-   request.send(constructed_request);
-}
 
 
 // Events
@@ -92,50 +81,34 @@ resetButton.addEventListener('click', () => {
 });
 
 
-let submitOrNot2Submit = 0;
-let correct_cite;
+
+
 submitButton.addEventListener('click', () => {
-    if (submitOrNot2Submit == 0) {
-      let constructed_request = "return=return";
-      let returned_data =create_request(constructed_request, (returned_data)=>{
-          correct_cite = JSON.parse(returned_data)[0].citation;
-          citation.innerHTML = correct_cite;
-          problem.value = correct_cite;
-
-          submitOrNot2Submit ++;
-    });
-    }
-    else{
-
     // TODO: need to add class check to make sure they are active 
-    if (problem.value == correct_cite) {
+    if (problem.value == correct_array[current]) {
         if (debug_mode) {
             console.log("Correct");
-            submitOrNot2Submit = 0;
             hintVal = 0;
         }
-        // current += 1;
-        // //a temporary measure to make cites loop endlessly lol
-        // if (current == num_cites) {
-        //     current = 0;
-        // }
-        //problem.value = correct_cite;
-        //citation.innerText = incorrect_array[current];
-        //citation.innerText = correct_cite;
+        current += 1;
+        //a temporary measure to make cites loop endlessly lol
+        if (current == num_cites) {
+            current = 0;
+        }
+        problem.value = correct_array[current];
+        citation.innerText = incorrect_array[current];
         if (debug_mode) {
-            console.log(correct_cite);
-            
+            console.log(correct_array[current]);
         }
     } else if (problem.value == citation.innerText) {
         if (debug_mode) {
             console.log("no change");
         }
-    } else if (problem.value != correct_cite) {
+    } else if (problem.value != correct_array[current]) {
         if (debug_mode) {
             console.log("incorrect");
         }
         hintButton.classList.add("active");
-    }
     }
 });
 
