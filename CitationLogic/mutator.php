@@ -7,7 +7,7 @@ function mutator($citation)
 	//require_once 'home/nas244/public_html/Stuff/SiteCite/Database/studentsfunctions.php';
 
 	//$scores=getStudentscore($sID);
-	$scores=array(87,50,25,90);
+	$scores=array(100,100,100,100);
 	//print_r($scores);
 	$percentiles=array(rand(0, 100),rand(0,100),rand(0,100),rand(0,100));
 	print_r($percentiles);
@@ -33,10 +33,35 @@ function mutator($citation)
 		$explosion=messpunct($explosion);
 	}
 
-	if($scores[2]>$percentiles[2])
+	
+	
+	if($scores[0]>$percentiles[0]&&$scores[1]>$percentiles[1]&&$scores[3]>$percentiles[3]&&$scores[2]>$percentiles[2])
+	{
+		$random=rand(0,3);
+		if($random==0)
+		{	
+			$explosion=messCapit($explosion);
+		}
+		if($random==1)
+		{	
+			$explosion=messorder($explosion);
+		}
+		if($random==2)
+		{	
+			$explosion=messformat($explosion);
+		}
+		if($random==3)
+		{	
+			$explosion=messpunct($explosion);
+		}
+
+	}
+
+	if($scores[2]>$percentiles[2] && $random !=3)
 	{
 		$explosion=implode(".",$explosion);
 	}
+	echo $random;
 	//echo $explosion;
 	return $explosion;
 
@@ -92,12 +117,13 @@ function messorder($citation)
 	$messwith=rand(0,$length-1);
 	//print_r($citation[$messwith]);
 	$messwith2=rand(0,$length-1);
-	//print_r($citation[$messwith2]);
+	
 
-	while(messwith==messwith2)
+	while($messwith==$messwith2)
 	{
 		$messwith2=rand(0,$length-1);
 	}
+	//print_r($citation[$messwith2]);
 	$temp = $citation[$messwith];
 	$citation[$messwith] = $citation[$messwith2];
 	$citation[$messwith2] = $temp;
@@ -180,8 +206,8 @@ function messformat($citation)
 	return $citation;
 }
 
-//$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
+$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
 
-//$result = mutator($citation);
-//echo $result;
+$result = mutator($citation);
+echo $result;
 ?>
