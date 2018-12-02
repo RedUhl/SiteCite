@@ -25,13 +25,13 @@ function executeQuery($query)
 }
 
 
-function InsertCitations($cID, $citation, $reportcount)
+function InsertCitations($citation, $reportcount)
 {
 	require_once 'login.php';
 	$connection = new mysqli($hn, $un, $pw, $db);
 
-	$query = "INSERT INTO Citations(citationID, citation, reportcount)" 
-	. "VALUES('$cID','$citation','$reportcount')";
+	$query = "INSERT INTO Citations(citation, reportcount)" 
+	. "VALUES('$citation','$reportcount')";
 	
 	$result = $connection->query($query);
 	if(!$result) die($connection->error);

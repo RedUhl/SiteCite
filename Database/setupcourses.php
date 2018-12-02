@@ -6,7 +6,7 @@
 	function setupcourses()
 	{
 		$query = "CREATE TABLE Courses (
-		courseID INTEGER NOT NULL UNIQUE,
+		courseID INTEGER NOT NULL AUTO_INCREMENT,
 		instructorID VARCHAR(7) NOT NULL,
 		coursecode VARCHAR(25) NOT NULL UNIQUE,
 		coursename VARCHAR(100) NOT NULL,

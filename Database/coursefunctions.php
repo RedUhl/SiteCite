@@ -25,13 +25,13 @@ function executeQuery($query)
 }
 
 
-function InsertCourses($cID, $iID, $ccode, $cname)
+function InsertCourses($iID, $ccode, $cname)
 {
 	require_once 'login.php';
 	$connection = new mysqli($hn, $un, $pw, $db);
 
-	$query = "INSERT INTO Courses(courseID, instructorID, coursecode, coursename)" 
-	. "VALUES('$cID','$iID','$ccdode','$cname')";
+	$query = "INSERT INTO Courses(instructorID, coursecode, coursename)" 
+	. "VALUES('$iID','$ccdode','$cname')";
 	
 	$result = $connection->query($query);
 	if(!$result) die($connection->error);
