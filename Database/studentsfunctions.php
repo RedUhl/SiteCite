@@ -31,7 +31,7 @@ function InsertCourses($sID, $name, $cID, $ccitations, $cscore, $oscore, $pscore
 	$connection = new mysqli($hn, $un, $pw, $db);
 
 	$query = "INSERT INTO Students(studentID,name,courseID,completedcitations,capitalizationscore,orderingscore,punctuationscore,formatingscore)" 
-	. "VALUES('$sID','$name','$cID','$ccitations','$cscore','$oscore','$pscore','$fscore')";
+	. "VALUES('$sID','$name','$cID','$ccitations','$cscore','$oscore','$pscore','$fscore');
 	
 	$result = $connection->query($query);
 	if(!$result) die($connection->error);
@@ -65,10 +65,14 @@ function setStudentscore($sID, $score, $scorenum)
 	$result=executeQuery($query);
 }
 
-function getAssignmentnumber($sID)
+function incrementAssignmentnumber($sID)
 {
 	$query="SELECT completedcitations FROM Students WHERE studentID='$sID'";
 	$result=executeQuery($query);
+	$assignmentnumber=result[0];
+	$assignmentnumber=assignmentnumber+1;
+	$query= "UPDATE Student SET completedcitations = '$assignmentnumber' WHERE product_id = '$sID'";
+	$result=excuteQuery($query);
 	return $result;
 }
 
