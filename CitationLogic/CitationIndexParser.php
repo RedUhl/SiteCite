@@ -1,5 +1,9 @@
 <?php
 
+/*
+Determines the string index of each element in a citation associative array
+*/
+
 
 require_once 'CitationParser.php';
 require_once 'StringFunctions.php';

@@ -1,6 +1,11 @@
 <?php
 
 
+/*
+Contains helper functions for working with strings
+*/
+
+
 function printCitationArray($array)
 {
 	foreach ($array as $row)
