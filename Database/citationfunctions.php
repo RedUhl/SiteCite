@@ -70,15 +70,9 @@ function countCitations()
 {
 	$returnValue = array();
         
-    $query = "SELECT DISTINCT citationID FROM Citations";
-        
-    // The result set only contains one column () so return
-    // just an array, not an associative array.
-    foreach ($result as $row){
-		$returnValue[] = $row['Citations'];
-    }
-        
-    return $returnValue;
+    $query = "SELECT MAX(citationID) FROM Citations;";
+    $result=executeQuery($query);
+    return $result;
 }
 
 ?>
