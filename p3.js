@@ -54,6 +54,22 @@ citation.innerText = incorrect_array[current];
 //     }
 // });
 
+//Progressbar increment
+function progress() {
+    var elem = document.getElementById("myBar");
+    var width = 10;
+    var id = setInterval(frame, 10);
+
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++;
+            elem.style.width = width + '%';
+            elem.innerHTML = width * 1 + '%';
+        }
+    }
+}
 
 hintButton.addEventListener('click', () => {
     console.log("Hint", hintVal);
@@ -89,8 +105,10 @@ submitButton.addEventListener('click', () => {
         if (debug_mode) {
             console.log("Correct");
             hintVal = 0;
+            progress();
         }
         current += 1;
+
         //a temporary measure to make cites loop endlessly lol
         if (current == num_cites) {
             current = 0;
