@@ -42,9 +42,13 @@
                 }
                 .video-thumbnail {
                     height: 200px;
-                    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
                     border-left: 10px solid pink;
                     background-color: white;
+                    box-sizing: border-box;
+                    background: #ffffff;
+                    border-radius: 2px;
+                    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+                    position: relative;
                 }
                 .graph {
                     height: 400px;
@@ -60,7 +64,7 @@
                     border-radius: 4px;
                     padding: 0.5em 1em;
                     color: rgb(22, 15, 15);
-                    background-color: #9555AF;
+                    background-color: rgb(11, 255, 113);
                 }
                 #hintOne {
                     visibility: hidden;
@@ -104,22 +108,36 @@
                     .yt-icon path {
                         fill: #878787;
                     }
-                    &:hover {
-                        background-color: #ebebeb;
-                        color: black;
-                        .yt-icon path {
-                            fill: rgb(255, 0, 221);
-                        }
-                    }
-                    &.active {
-                        background-color: inherit;
-                        color: inherit;
-                        pointer-events: none;
-                        font-weight: 700;
-                        .yt-icon path {
-                            fill: rgb(255, 0, 0);
-                        }
-                    }
+                    //     &:hover:nth-child(1) {
+                    //         background-color: #33ff55;
+                    //         color: black;
+                    //         .yt-icon path {
+                    //             fill: rgb(255, 255, 255);
+                    //         }
+                    //     }
+                    //     &:hover:nth-child(2) {
+                    //         background-color: #ff00ff;
+                    //         color: black;
+                    //         .yt-icon path {
+                    //             fill: rgb(255, 255, 255);
+                    //         }
+                    //     }
+                    //     &:hover:nth-child(3) {
+                    //         background-color: #09a5ff;
+                    //         color: black;
+                    //         .yt-icon path {
+                    //             fill: rgb(255, 255, 255);
+                    //         }
+                    //     }
+                    //     &.active {
+                    //         background-color: blueviolet;
+                    //         color: inherit;
+                    //         pointer-events: none;
+                    //         font-weight: 700;
+                    //         .yt-icon path {
+                    //             fill: rgb(255, 218, 54);
+                    //         }
+                    //     }
                 }
                 // Hide & Show Logic
                 transform: translate3d(-$side-menu-width,

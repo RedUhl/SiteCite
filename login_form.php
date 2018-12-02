@@ -8,7 +8,7 @@
 //     } else {
 //         $remember = "off";
 //     }
-//     //count_field_val doesn't exist, calls and checks if value exists
+//     //count_field_val doesn't exist, calls and checks if value exists can replace with token check
 //     if (count_field_val($pdo, "users", "username", $username)>0) {
 //         $user_data = return_field_data($pdo, "users", "username", $username);
 //         if ($user_data['active']==1) {
@@ -18,7 +18,7 @@
 //                 if ($remember="on") {
 //                     setcookie("username", $username, time()+86400);
 //                 }
-//                 redirect("mycontent.php");
+//                 redirect("home.html");
 //             } else {
 //                 set_msg("Password is invalid");
 //             }
@@ -106,7 +106,7 @@
         width:40%;
         margin: 5px 0 25px;
     }
-    .btn{
+    /* .btn{
         background-color: #27c2a5
         color: #fff;
         font-size: 19px;
@@ -116,8 +116,8 @@
     }
     .btn:hover, .btn:focus{
         background-color: #23a730;
-        border-bottom: 4px solid #23a730!important;
-    }
+        border-bottom: 4px solid #23a730!important;} */
+    
     .svg-inline--fa{
         font-size: 20px;
         margin-right: 7px;

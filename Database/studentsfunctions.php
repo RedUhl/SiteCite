@@ -25,14 +25,64 @@ function executeQuery($query)
 }
 
 
+function redirect($loc) {
+	header("Location: {$loc}");
+}
+//checks if logged in on each page
+function logged_in(){
+	//if session set, return true
+	if (isset($_SESSION['username'])) {
+		return true;
+	} else {
+		//if no session, check for cookie
+		if (isset($_COOKIE['username'])) {
+			$_SESSION['username'] = $_COOKIE['username'];
+			return true;
+		} else {
+			return false;
+		}
+	} 
+}
+
+function count_field_val($pdo, $tbl, $fld, $val) {
+	try {
+		 $sql="SELECT {$fld} FROM {$tbl} WHERE {$fld}=:value";
+		 $stmnt=$pdo->prepare($sql);
+		 $stmnt->execute([':value'=>$val]);
+		 return $stmnt->rowCount();
+	} catch(PDOException $e) {
+		 return $e->getMessage();
+	}
+}
+
+function return_field_data($pdo, $tbl, $fld, $val) {
+	try {
+		 $sql="SELECT * FROM {$tbl} WHERE {$fld}=:value";
+		 $stmnt=$pdo->prepare($sql);
+		 $stmnt->execute([':value'=>$val]);
+		 return $stmnt->fetch();
+	} catch(PDOException $e) {
+		 return $e->getMessage();
+	}
+}
+
+function set_msg($msg, $level='danger') {
+	if (($level!='primary') && ($level!='success') && ($level!='info') && ($level!='warning')) {
+		$level='danger';
+	}
+	if (empty($msg)) {
+		unset($_SESSION['message']);
+	} else {
+		$_SESSION['message']="<h4 class='bg-{$level} text-center'>{$msg}</h4>";
+	}
+}
+
 function InsertCourses($sID, $name, $cID, $ccitations, $cscore, $oscore, $pscore, $fscore)
 {
 	require_once 'login.php';
 	$connection = new mysqli($hn, $un, $pw, $db);
 
-	$query = "INSERT INTO Students(studentID,name,courseID,completedcitations,capitalizationscore,orderingscore,punctuationscore,formatingscore)" 
-	. "VALUES('$sID','$name','$cID','$ccitations','$cscore','$oscore','$pscore','$fscore');
-	
+	$query = "INSERT INTO Students(studentID,name,courseID,completedcitations,capitalizationscore,orderingscore,punctuationscore,formatingscore), VALUES('$sID','$name','$cID','$ccitations','$cscore','$oscore','$pscore','$fscore')";
 	$result = $connection->query($query);
 	if(!$result) die($connection->error);
 }
