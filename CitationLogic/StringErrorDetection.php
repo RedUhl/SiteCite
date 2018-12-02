@@ -1,5 +1,12 @@
 <?php
 
+/*
+StringErrorDetection.php
+Contains a set of functions that allow the creation of a list of specific character differences between two strings
+*/
+
+
+
 require_once 'StringFunctions.php';
 
 // Converts errors to instructions or instructions to errors
@@ -147,14 +154,11 @@ function ed_test($incorrect, $correct)
 	$errors = findStringErrors($incorrect, $correct);
 	$instructs = flipErrors($errors);
 	
-	print_matrix($matrix);
-	print_matrix($errors);
-	print_matrix($instructs);
+	printMatrix($matrix);
+	printMatrix($errors);
+	printMatrix($instructs);
 	echo "<br>";
 }
-
-ed_test("sitting", "kitten");
-ed_test("sunday", "saturday");
 
 
 
