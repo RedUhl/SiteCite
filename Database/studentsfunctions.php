@@ -13,14 +13,14 @@ function executeQuery($query)
         $conn->close();
         die($conn->error);  // Need better error handling
     }
-        
+
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
         $returnValue[] = $row;
     }
-        
+
     $result->close();
     $conn->close();
-        
+
     return $returnValue;
 }
 
@@ -41,14 +41,14 @@ function logged_in(){
 		} else {
 			return false;
 		}
-	} 
+	}
 }
 
 function count_field_val($pdo, $tbl, $fld, $val) {
 	try {
 		 $sql="SELECT {$fld} FROM {$tbl} WHERE {$fld}=:value";
 		 $stmnt=$pdo->prepare($sql);
-		 $stmnt->execute([':value'=>$val]);
+		 $stmnt->execute(array(':value'=>$val));
 		 return $stmnt->rowCount();
 	} catch(PDOException $e) {
 		 return $e->getMessage();
@@ -59,7 +59,7 @@ function return_field_data($pdo, $tbl, $fld, $val) {
 	try {
 		 $sql="SELECT * FROM {$tbl} WHERE {$fld}=:value";
 		 $stmnt=$pdo->prepare($sql);
-		 $stmnt->execute([':value'=>$val]);
+		 $stmnt->execute(array(':value'=>$val));
 		 return $stmnt->fetch();
 	} catch(PDOException $e) {
 		 return $e->getMessage();
@@ -119,8 +119,8 @@ function incrementAssignmentnumber($sID)
 {
 	$query="SELECT completedcitations FROM Students WHERE studentID='$sID'";
 	$result=executeQuery($query);
-	$assignmentnumber=result[0];
-	$assignmentnumber=assignmentnumber+1;
+	$assignmentnumber=$result[0];
+	$assignmentnumber=$assignmentnumber+1;
 	$query= "UPDATE Student SET completedcitations = '$assignmentnumber' WHERE product_id = '$sID'";
 	$result=excuteQuery($query);
 	return $result;
