@@ -3,14 +3,28 @@ function mutator($citation)
 {
 	$explosion=explode(".",$citation);
 	//print_r($explosion);
+	$scores=array();
 	
-	//require_once 'home/nas244/public_html/Stuff/SiteCite/Database/studentsfunctions.php';
+	$dblink = devOpenDb("localhost","wbf49","ab1234","wbf49");
+	
+	$sql="SELECT capitalizationscore,orderingscore,punctuationscore,formatingscore FROM Students WHERE studentID='$_SESSION['phpCAS']['user']'";
+	$result = mysql_query($sql,$dblink);
+	
+	if($result == false) echo "<br /><br />Error:".mysql_error()."<br /> , Line:".__LINE__."<br /> $sql <br />";
+	while($row = mysql_fetch_assoc($result)){
+    	$keys=array_keys($row);
+    	foreach($keys as $key){
+      	array_push($scores,$row[$key]);
+    	}
+  	}
+	
+	
 
-	//$scores=getStudentscore($sID);
-	$scores=array(100,100,100,100);
+	//$scores=getStudentscore(4);
+	//$scores=array(100,100,100,100);
 	//print_r($scores);
 	$percentiles=array(rand(0, 100),rand(0,100),rand(0,100),rand(0,100));
-	print_r($percentiles);
+	//print_r($percentiles);
 	
 
 	if($scores[0]<=$percentiles[0])
@@ -61,7 +75,7 @@ function mutator($citation)
 	{
 		$explosion=implode(".",$explosion);
 	}
-	echo $random;
+	//echo $random;
 	//echo $explosion;
 	return $explosion;
 
@@ -205,6 +219,20 @@ function messformat($citation)
 
 	return $citation;
 }
+
+function devOpenDb($hostname,$uid,$pwd,$database){
+  $link = mysql_connect($hostname,$uid,$pwd);
+  if($link && mysql_select_db($database)){
+    //echo "Database Connected with Development Link ";
+    return($link);
+  } else {
+    echo "No connection ";
+    return(FALSE);
+  }
+}
+
+
+
 
 //$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
 
