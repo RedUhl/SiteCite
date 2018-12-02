@@ -49,7 +49,6 @@ function getReportcount($cID)
 	$query="SELECT reportcount FROM Citations WHERE citationID='$cID'";
 	$result=executeQuery($query);
 	return $result;
-
 }
 
 function setReportcount($cID,$reportnum)
