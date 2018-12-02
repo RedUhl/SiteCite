@@ -54,6 +54,23 @@ citation.innerText = incorrect_array[current];
 //     }
 // });
 
+//Progressbar increment
+function progress() {
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+
+    function frame() {
+        //set 100 to assignment number
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++;
+            //probably module this or something or ignore
+            elem.style.width = width + '%';
+        }
+    }
+}
 
 hintButton.addEventListener('click', () => {
     console.log("Hint", hintVal);
@@ -91,6 +108,7 @@ submitButton.addEventListener('click', () => {
             hintVal = 0;
         }
         current += 1;
+        progress();
         //a temporary measure to make cites loop endlessly lol
         if (current == num_cites) {
             current = 0;
