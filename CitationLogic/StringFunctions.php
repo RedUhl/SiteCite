@@ -47,59 +47,21 @@ function print_matrix_recurse($matrix, $indent)
 }
 
 
-
-
-
-function concatCitation($matrix)
+// Convert citation array into citation string
+function concatCitation($array)
 {
-	$indent = '|';
-	$i = 0;
-	foreach ($matrix as $row)
+	$result = '';
+	foreach ($array as $row)
 	{
 		if (is_array($row))
-		{
-			if ($i != 0)
-				echo '<br>';
-			print_matrix_recurse($row, $indent . '|');
-		}
+			$concat = concatCitation($row);
 		else
-		{
-			if ($i == 0)
-				echo $indent;
-			echo $row . '|';
-			$i++;
-		}
+			$concat = $row;
+		$result = $result . $concat;
 	}
-	echo '<br>';
+	
+	return $result;
 }
-
-
-function concatCitationRecurse($matrix, $indent)
-{
-	$i = 0;
-	foreach ($matrix as $row)
-	{
-		if (is_array($row))
-		{
-			if ($i != 0)
-				echo '<br>';
-			print_matrix_recurse($row, $indent . '|');
-		}
-		else
-		{
-			if ($i == 0)
-				echo $indent;
-			echo $row . '|';
-			$i++;
-		}
-	}
-	echo '<br>';
-}
-
-
-
-
-
 
 
 function splitBefore($string, $splitter)

@@ -95,4 +95,24 @@ function getDummyCitation2()
 }
 
 
+function testDummyCitation()
+{
+	$citation1 = 'Deegan, E. F. (2000). Beyond the red pen: Clarifying our role in the response process. <i>The English Journal, 90</i>(1), 94-101. doi:10.2307/821738';
+	$array1 = getDummyCitation1();
+	$string1 = concatCitation($array1);
+	if ($citation1 === $string1)
+		echo "Success 1<br>";
+	else
+		echo "Failure 1<br>";
+
+	$citation2 = 'Bardine, B. A., Bardine, M. S., & Deegan, E. F. (2000). Beyond the red pen: Clarifying our role in the response process. <i>The English Journal, 90</i>(1), 94-101. doi:10.2307/821738';
+	$array2 = getDummyCitation2();
+	$string2 = concatCitation($array2);
+	if ($citation2 === $string2)
+		echo "Success 2<br>";
+	else
+		echo "Failure 2<br>";
+}
+
+
 ?>
