@@ -1,46 +1,51 @@
 <?php
 
+
 require_once 'StringFunctions.php';
 
-// Done: DOI
-// Need: Authors, Year, Article title, Journal (Name, Volume, Issue, Pages)
-function printParsedCitation($parse)
+
+// Separates a string of an author's last name into an array
+function parseLast($last, $style)
 {
-	// Prints the authors
-	echo 'Authors: ';
-	foreach ($parse['Authors'] as $author)
-		echo 'Last: ' . $author['Last']['Name'] . '; ';
-		echo 'First: ' . $author['First']['Name'] . '; ';
-		echo 'Last: ' . $author['Last']['Name'] . '; ';
-	echo '<br>';
+	$result = array('FKey'=>'', 'Name'=>'', 'BKey'=>'');
 	
+	// "& Last, "
+	if ($style === 3)
+	{
+		$parse = splitAfter($last, '& ');
+		$result['FKey'] = $parse[0];
+		$last = $parse[1];
+	}
 	
-	// Prints the DOI number
-	echo 'DOI: ' . $parse['DOI']['Number'] . '<br>';
+	$parse = splitBefore($last, ',');
+	$result['Name'] = $parse[0];
+	$result['BKey'] = $parse[1];
+	
+	return $result;
 }
 
-/*
-function parseAuthor($author, $style)
+
+// Separates a string of an author's first and middle initials into two arrays
+// NOTE: Style 2 expects a comma in:
+// 'Middle' 'BKey' if middle exists; 'First' 'BKey' otherwise
+// 'FKey' might be useless
+function parseFM($fm, $style)
 {
-	$last = array('Name'=>'', 'FKey'=>'', 'BKey'=>'', 'Style'=>$style);
+	$result = array('First'=>'', 'Middle'=>'');
+	$parse = splitAfter($fm, '. ');
 	
-	// "& Last, F. M."
-	if ($style == 3)
+	$parseF = splitBefore($parse[0], '.');
+	$result['First'] = array('FKey'=>'', 'Name'=>$parseF[0], 'BKey'=>$parseF[1]);
+	
+	// If there is a middle initial
+	if ($parse[1] !== '')
 	{
-		continue;
+		$parseM = splitBefore($parse[1], '.');
+		$result['Middle'] = array('FKey'=>'', 'Name'=>$parseM[0], 'BKey'=>$parseM[1]);
 	}
 	
-	else
-	{
-		$parse = splitBefore($author['L'], ',');
-		$last['Name'] = $parse[0];
-		$last['BKey'] = $parse[1];
-	}
-	
-	
-	
-	return $author;
-}*/
+	return $result;
+}
 
 
 // Parses a list of authors into individual authors, then returns them as an associative array
@@ -65,21 +70,94 @@ function parseAuthorList($authors)
 			else
 				$style = 2;
 		}
+
+		$parseFM = parseFM($parse[($i*2)+1], $style);
+		
+		$result[$i] = array('Last'=>parseLast($parse[$i*2], $style),
+							'First'=>$parseFM['First'],
+							'Middle'=>$parseFM['Middle']);
+	}
+
+	return $result;
+}
+
+
+// Parses a year or issue into its separate elements, then returns them as an associative array
+function parseNumber($number)
+{
+	$parse1 = splitAfter($number, '(');
+	$parse2 = splitBefore($parse1[1], ')');
+	return array('Open'=>$parse1[0], 'Number'=>$parse2[0], 'Close'=>$parse2[1]);
+}
+
+
+// Parses an article title into its separate elements, then returns them as an associative array
+// FKey might be unnecessary
+function parseTitle($title)
+{
+	$parse = splitBefore($title, '.');
+	return array('FKey'=>'', 'Text'=>$parse[0], 'BKey'=>$parse[1]);
+}
+
+
+// |<i> Journal Name, Volume</i>|
+// Parses journal name and volume
+function parseItalics($name_to_volume)
+{
+	$result = array('Name'=>array('FKey'=>'', 'Text'=>'', 'BKey'=>''),
+					'Volume'=>array('FKey'=>'', 'Number'=>'', 'BKey'=>''));
 	
-		//$author = array('L'=>$parse[$i*2], 'FM'=>$parse[($i*2)+1]);
-		//$result[$i] = parseAuthor($author, $style);
-		
-		
-		
-		//$parseFM = parseFM($parse[($i*2)+1], $style);
-		
-		$result[$i] = array('Last'=>parseLast($parse[$i*2], $style), 'First'=>'', 'Middle'=>'', 'Style'=>$style);
-		
-		/*
-		$result[$i] = array(	'Last'=>parseLast($parse[$i*2], $style),
-								'First'=>$parseFM['First'],
-								'Middle'=>$parseFM['Middle'],
-								'Style'=>$style);*/
+	// Will probably be useful later
+	$italics = getItalics($name_to_volume);
+	
+	// Separate name and volume
+	$parse = splitAfter($name_to_volume, ', ');
+	$name = $parse[0];
+	$volume = $parse[1];
+	
+	// Split volume into its elements
+	$parse = splitBefore($volume, '</i>');
+	$result['Volume']['BKey'] = $parse[1];
+	$result['Volume']['Number'] = $parse[0];
+	
+	// Split comma off name
+	$parse = splitBefore($name, ',');
+	$text = $parse[0];
+	$result['Name']['BKey'] = $parse[1];
+	
+	// Split tags of name
+	$parse = splitAfter($text, '<i>');
+	$result['Name']['FKey'] = $parse[0];
+	$text = $parse[1];
+	
+	// Split space of beginning of name
+	if (substr($text, 0, 1) === ' ')
+	{
+		$text = substr($text, 1);
+		$result['Name']['FKey'] = $result['Name']['FKey'] . ' ';
+	}
+	$result['Name']['Text'] = $text;
+
+	return $result;
+}
+
+
+// Parses pages into separate elements, then returns them as an associative array
+function parsePages($pages)
+{
+	$result = array('FKey'=>'', 'First'=>'', 'MKey'=>'', 'Last'=>'', 'BKey'=>'');
+	
+	$parse = splitBefore($pages, '.');
+	$result['BKey'] = $parse[1];
+	
+	$parse = splitBefore($parse[0], '-');
+	$result['First'] = $parse[0];
+	
+	if (sizeof($parse) > 1)
+	{
+		$parse = splitAfter($parse[1], '-');
+		$result['MKey'] = $parse[0];
+		$result['Last'] = $parse[1];
 	}
 
 	return $result;
@@ -97,8 +175,7 @@ function parseDOI($doi)
 // Parses a citation into its separate elements, then returns them as an array
 function parseCitation($citation)
 {
-	//$result = array("Authors"=>"", "Year"=>"", "Title"=>"", "Journal"=>"", "DOI"=>"");
-	$result = array('Authors'=>'', 'Remainder'=>'', 'DOI'=>'');
+	$result = array('Authors'=>'', 'Year'=>'', 'Title'=>'', 'Journal'=>'',  'DOI'=>'');
 
 	// Splits "Citation" into: "Authors-Pages", "DOI"
 	$parse = splitBefore($citation, 'doi:');
@@ -111,29 +188,26 @@ function parseCitation($citation)
 	$year_to_volume = $parse[1];
 	$issue_to_pages = $parse[2];
 	
+	// Splits "Year-Volume" into "Year-Title", "JournalName-Volume"
+	$parse = splitAfter($year_to_volume, '.');
+	$year_to_title = $parse[0] . $parse[1];
+	$name_to_volume = $parse[2];
 	
+	// Splits "Year-Title" into "Year", "Title"
+	$parse = splitAfter($year_to_title, '. ');
+	$result['Year'] = parseNumber($parse[0]);
+	$result['Title'] = parseTitle($parse[1]);
 	
+	// Splits "JournalName-Volume" into "Name", "Volume"
+	$result['Journal'] = parseItalics($name_to_volume);
 	
-	$result['Remainder'] = array($year_to_volume, $issue_to_pages);
-	
+	// Splits "Issue-Pages" into "Issue", "Pages"
+	$parse = splitAfter($issue_to_pages, ', ');
+	$result['Journal']['Issue'] = parseNumber($parse[0]);
+	$result['Journal']['Pages'] = parsePages($parse[1]);
 
 	return $result;
 }
-
-
-//$citation = "Last, F. M., & Last, F. M. (Year). Article title. Journal Name, Volume(Issue), Pages. doi:DOI";
-$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
-
-$parse = parseCitation($citation);
-
-print_matrix($parse);
-echo '<br>';
-printParsedCitation($parse);
-
-
-//$parse = parseCitation($citation);
-
-//print_matrix($parse);
 
 
 ?>
