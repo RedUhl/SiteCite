@@ -147,15 +147,16 @@ function ed_test($incorrect, $correct)
 	$errors = findStringErrors($incorrect, $correct);
 	$instructs = flipErrors($errors);
 	
-	print_matrix($matrix);
-	print_matrix($errors);
-	print_matrix($instructs);
+	printMatrix($matrix);
+	printMatrix($errors);
+	printMatrix($instructs);
 	echo "<br>";
 }
 
+/*
 ed_test("sitting", "kitten");
 ed_test("sunday", "saturday");
-
+*/
 
 
 ?>
