@@ -31,7 +31,7 @@ function InsertCitations($cID, $citation, $reportcount)
 	$connection = new mysqli($hn, $un, $pw, $db);
 
 	$query = "INSERT INTO Citations(citationID, citation, reportcount)" 
-	. "VALUES('$cID','$citation','$reportcount');
+	. "VALUES('$cID','$citation','$reportcount')";
 	
 	$result = $connection->query($query);
 	if(!$result) die($connection->error);
@@ -71,12 +71,11 @@ function countCitations()
 	$returnValue = array();
         
     $query = "SELECT DISTINCT citationID FROM Citations";
-    $result = executeQuery($query);
         
-    // The result set only contains one column (category) so return
+    // The result set only contains one column () so return
     // just an array, not an associative array.
     foreach ($result as $row){
-		$returnValue[] = $row['category'];
+		$returnValue[] = $row['Citations'];
     }
         
     return $returnValue;

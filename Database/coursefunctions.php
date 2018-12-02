@@ -31,7 +31,7 @@ function InsertCourses($cID, $iID, $ccode, $cname)
 	$connection = new mysqli($hn, $un, $pw, $db);
 
 	$query = "INSERT INTO Courses(courseID, instructorID, coursecode, coursename)" 
-	. "VALUES('$cID','$iID','$ccdode','$cname');
+	. "VALUES('$cID','$iID','$ccdode','$cname')";
 	
 	$result = $connection->query($query);
 	if(!$result) die($connection->error);

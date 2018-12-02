@@ -31,7 +31,7 @@ function InsertInstructor($iID, $iname)
 	$connection = new mysqli($hn, $un, $pw, $db);
 
 	$query = "INSERT INTO Instructor(instructorID, instructorname)" 
-	. "VALUES('$iID','$iname');
+	. "VALUES('$iID','$iname')";
 	
 	$result = $connection->query($query);
 	if(!$result) die($connection->error);
