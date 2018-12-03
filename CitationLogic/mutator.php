@@ -15,7 +15,7 @@ function mutator($citation)
 	$dblink = devOpenDb($hn,$db,$pw,$un);
 	//$dblink = devOpenDb("localhost","user_rw",'groupC3',"$mysqlAccessPW['user_rw']");
 	
-	$sql="SELECT capitalizationscore,orderingscore,punctuationscore,formatingscore FROM Students WHERE studentID=2";
+	$sql="SELECT capitalizationscore,orderingscore,punctuationscore,formatingscore FROM Students WHERE studentID='$_SESSION['phpCAS']['user']'";
 	$result = mysql_query($sql,$dblink);
 	
 	if($result == false) echo "<br /><br />Error:".mysql_error()."<br /> , Line:".__LINE__."<br /> $sql <br />";
