@@ -155,8 +155,10 @@ function parseItalics($name_to_volume)
 	// Split tags off of name (assumed that tags are present, for now)
 	$parse = splitAfter($text, '<i>');
 	if (sizeof($parse) > 1)
+	{
 		$result['Name']['FKey'] = $parse[0];
 		$text = $parse[1];
+	}
 	else
 		$text = $parse[0];
 	
