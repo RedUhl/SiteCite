@@ -5,8 +5,10 @@ function mutator($citation)
 	//print_r($explosion);
 	$scores=array();
 	
-	//$dblink = devOpenDb("localhost","wbf49","ab1234","wbf49");
-	$dblink = devOpenDb("localhost","user_rw",'groupC3',"$mysqlAccessPW['user_rw']");
+	require './../Database/login.php';
+
+	$dblink = devOpenDb($hn,$db,$pw,$un);
+	//$dblink = devOpenDb("localhost","user_rw",'groupC3',"$mysqlAccessPW['user_rw']");
 	
 	$sql="SELECT capitalizationscore,orderingscore,punctuationscore,formatingscore FROM Students WHERE studentID=2";
 	$result = mysql_query($sql,$dblink);
@@ -117,12 +119,12 @@ function messCapit($citation)
 
 function isPartUppercase($string) {
 	
-    return (bool) preg_match(‘/[A-Z]/’, $string);
+    return (bool) preg_match(ï¿½/[A-Z]/ï¿½, $string);
 }
 
 function isPartLowercase($string) {
 	//echo 'here';
-    return (bool) preg_match(‘/[a-z]/’, $string);
+    return (bool) preg_match(ï¿½/[a-z]/ï¿½, $string);
 }
 
 
