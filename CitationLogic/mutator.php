@@ -5,6 +5,8 @@ function mutator($citation)
 	//print_r($explosion);
 	$scores=array();
 	
+	require '../Database/studentsfunctions.php';
+
 	$dblink = devOpenDb("localhost","wbf49","ab1234","wbf49");
 	
 	$sql="SELECT capitalizationscore,orderingscore,punctuationscore,formatingscore FROM Students WHERE studentID='$_SESSION['phpCAS']['user']'";
