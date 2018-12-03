@@ -1,3 +1,3 @@
 <?php
-echo 'validating -> redirect to home';
+echo 'validating -> start_session -> redirect to home';
 ?>

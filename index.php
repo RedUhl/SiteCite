@@ -18,7 +18,7 @@
 //                 if ($remember="on") {
 //                     setcookie("username", $username, time()+86400);
 //                 }
-//                 redirect("home.html");
+//                 redirect("home.php");
 //             } else {
 //                 set_msg("Password is invalid");
 //             }
@@ -131,7 +131,7 @@
                 <div class="col-12 user-img">
                     <img src="img/_free-icons_png_1042_190293.png">
                 </div>
-                <form action="validate/validate_user.php" method="post" class="col-12">
+                <form action="home.php" method="post" class="col-12">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Enter Username">
                     </div>

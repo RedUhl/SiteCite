@@ -7,14 +7,15 @@
 
 try{
 
-    $query="SELECT citation FROM Citations WHERE citationID=citation";
+    $query="SELECT citation FROM Citations WHERE citation='$attempt'";
     $result=executeQuery($query);
+    $resultCheck = mysqli_num_rows($result);
     
-    if($result){
-        echo 'something happens'.$result;
+    if($resultCheck == 0){
+        echo 'incorrect'.$result;
     }
 }else{
-    echo 'ERROR'
+    echo 'correct'
 }
 
 
