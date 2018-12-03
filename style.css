@@ -5,7 +5,7 @@ body {
 }
 
 .bg-gray {
-    background-color: #e3e3e3;
+    background-color: #bdacac;
 }
 
 .flex-grow-1 {
@@ -184,22 +184,26 @@ aside.mobile.open~.side-menu-backdrop {
     z-index: 1040;
 }
 
-#container {
+.container {
     margin: 0 auto;
     margin-top: 230px;
     padding: 0;
 }
 
-#container1:hover,
-#container2:hover,
-#container3:hover {
+.container1:hover,
+.container2:hover,
+.container3:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
     transition: box-shadow 0.25s ease-in;
 }
 
-#citation {
+.citation {
     height: 15%;
     padding: 10px 10px;
+    height: 400px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    border-left: 10px solid rgb(0, 68, 255);
+    background-color: white;
 }
 
 

@@ -56,17 +56,16 @@ citation.innerText = incorrect_array[current];
 
 //Progressbar increment
 function progress() {
-    var elem = document.getElementById("myBar");
+    var elemBar = document.getElementById("myBar");
     var width = 10;
     var id = setInterval(frame, 10);
 
     function frame() {
-        if (width >= 100) {
+        if (width >= 10) {
             clearInterval(id);
         } else {
-            width++;
-            elem.style.width = width + '%';
-            elem.innerHTML = width * 1 + '%';
+            elemBar.style.width++;
+            elemBar.innerHTML = width * 1 + '%';
         }
     }
 }

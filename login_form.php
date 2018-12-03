@@ -106,7 +106,7 @@
         width:40%;
         margin: 5px 0 25px;
     }
-    /* .btn{
+    .btn{
         background-color: #27c2a5
         color: #fff;
         font-size: 19px;
@@ -116,7 +116,7 @@
     }
     .btn:hover, .btn:focus{
         background-color: #23a730;
-        border-bottom: 4px solid #23a730!important;} */
+        border-bottom: 4px solid #23a730!important;}
     
     .svg-inline--fa{
         font-size: 20px;
