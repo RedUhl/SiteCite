@@ -114,10 +114,10 @@ function mutator($citation)
 		array_push($retarray,"Formatting");
 		array_push($retarray,$formatindex);
 	}
-	echo $formatindex;
-	echo $punctindex;
-	echo $capindex;
-	echo $capindex;
+	//echo $formatindex;
+	//echo $punctindex;
+	//echo $capindex;
+	//echo $capindex;
 	//echo $explosion;
 	
 	return $retarray;
@@ -153,7 +153,7 @@ function messCapit($citation)
 	}
 */
 	array_push($citation,$messwith);
-	echo $messwith;
+	//echo $messwith;
 	
 	return $citation;
 	
@@ -275,7 +275,7 @@ function messformat($citation)
 	//print_r($citation[$messwith]);
 	$citation[$messwith]="<i>".$citation[$messwith]."</i>";
 	array_push($citation,$messwith);
-	echo $messwith;
+	//echo $messwith;
 	return $citation;
 }
 
@@ -293,8 +293,8 @@ function devOpenDb($hostname,$uid,$pwd,$database){
 
 
 
-$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
+//$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
 
-$result = mutator($citation);
-print_r($result);
+//$result = mutator($citation);
+//print_r($result);
 ?>
