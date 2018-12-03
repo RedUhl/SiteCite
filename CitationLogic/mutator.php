@@ -5,9 +5,12 @@ function mutator($citation)
 	//print_r($explosion);
 	$scores=array();
 	
-	$dblink = devOpenDb("localhost","wbf49","ab1234","wbf49");
+	require './../Database/login.php';
+
+	$dblink = devOpenDb($hn,$db,$pw,$un);
+	//$dblink = devOpenDb("localhost","user_rw",'groupC3',"$mysqlAccessPW['user_rw']");
 	
-	$sql="SELECT capitalizationscore,orderingscore,punctuationscore,formatingscore FROM Students WHERE studentID='$_SESSION['phpCAS']['user']'";
+	$sql="SELECT capitalizationscore,orderingscore,punctuationscore,formatingscore FROM Students WHERE studentID=2";
 	$result = mysql_query($sql,$dblink);
 	
 	if($result == false) echo "<br /><br />Error:".mysql_error()."<br /> , Line:".__LINE__."<br /> $sql <br />";
@@ -22,9 +25,9 @@ function mutator($citation)
 
 	//$scores=getStudentscore(4);
 	//$scores=array(100,100,100,100);
-	//print_r($scores);
+	print_r($scores);
 	$percentiles=array(rand(0, 100),rand(0,100),rand(0,100),rand(0,100));
-	//print_r($percentiles);
+	print_r($percentiles);
 	
 
 	if($scores[0]<=$percentiles[0])
@@ -75,7 +78,7 @@ function mutator($citation)
 	{
 		$explosion=implode(".",$explosion);
 	}
-	//echo $random;
+	echo $random;
 	//echo $explosion;
 	return $explosion;
 
@@ -234,8 +237,8 @@ function devOpenDb($hostname,$uid,$pwd,$database){
 
 
 
-//$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
+$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
 
-//$result = mutator($citation);
-//echo $result;
+$result = mutator($citation);
+echo $result;
 ?>
