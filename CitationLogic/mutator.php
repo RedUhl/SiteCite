@@ -161,12 +161,12 @@ function messCapit($citation)
 
 function isPartUppercase($string) {
 	
-    return (bool) preg_match(‘/[A-Z]/’, $string);
+    return (bool) preg_match(ï¿½/[A-Z]/ï¿½, $string);
 }
 
 function isPartLowercase($string) {
 	//echo 'here';
-    return (bool) preg_match(‘/[a-z]/’, $string);
+    return (bool) preg_match(ï¿½/[a-z]/ï¿½, $string);
 }
 
 
@@ -293,8 +293,8 @@ function devOpenDb($hostname,$uid,$pwd,$database){
 
 
 
-//$citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
+// $citation = "Last, F. M. (Year). Article title.<i> Journal Name, Volume</i>(Issue), Pages. doi:DOI";
 
-//$result = mutator($citation);
-//print_r($result);
+// $result = mutator($citation);
+// print_r($result);
 ?>

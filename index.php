@@ -1,92 +1,147 @@
 <?php
-
-// if(logged_in()){
-//     $username=$_SESSION['username'];
-// }else{
-//     redirect('login_form.php');
+// $connection = new mysqli($hn, $un, $pw, $db);
+// if ($_SERVER['REQUEST_METHOD']=='POST') {
+//     $username=$_POST['username'];
+//     $password=$_POST['password'];
+//     if (isset($_POST['remember'])) {
+//         $remember = "on";
+//     } else {
+//         $remember = "off";
+//     }
+//     //count_field_val doesn't exist, calls and checks if value exists can replace with token check
+//     if (count_field_val($pdo, "users", "username", $username)>0) {
+//         $user_data = return_field_data($pdo, "users", "username", $username);
+//         if ($user_data['active']==1) {
+//             if (password_verify($password, $user_data['password'])) {
+//                 set_msg("Logged in successfully", "success");
+//                 $_SESSION['username']=$username;
+//                 if ($remember="on") {
+//                     setcookie("username", $username, time()+86400);
+//                 }
+//                 redirect("home.html");
+//             } else {
+//                 set_msg("Password is invalid");
+//             }
+//         } else {
+//             set_msg("User '{$username}' found but has not been activated");
+//         }
+//     } else {
+//         set_msg("User '{$username}' does not exist");
+//     }
+// } else {
+//     $username="";
+//     $password="";
 // }
-
 ?>
 
+
+
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <style>
+        body{
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffff;
+        }
+        .main-section{
 
+            margin: 0 auto;
+            margin-top: 230px;
+            padding: 0;
+        }
+        .modal-content{
+            background-color: #660000;
+            opacity: .95;
+            padding: 0 18px;
+            padding-bottom: 20px;
+            box-shadow: 0px 0px 3px #848484;
+        }
+        .user-img{
+            margin-top: -50px;
+            margin-bottom: 35px;
+
+        }
+        .user-img img{
+            height: 100px;
+            width: 100px;
+            border: none;
+        }
+        .form-group{
+            margin-bottom: 25px;
+        }
+        .form-group input{
+            height: 42px;
+            border-radius" 5px;
+            border: 0;
+            font-size: 18px;
+            padding-left: 54px;
+        }
+        .form-group::before{
+            font-family: 'Font Awesome\ 5 Free';
+            content: "\f007";
+            position: absolute;
+            font-size: 22px;
+            color: #555e60;
+            left: 28px;
+            padding-top: 4px;
+        }
+        .form-group:last-of-type::before{
+            content: "\f023";
+        }
+        button{
+            width:40%;
+            margin: 5px 0 25px;
+        }
+        .btn{
+            background-color: #afe2ff
+            color: #fff;
+            font-size: 19px;
+            padding: 7px 14px;
+            border-radius: 5px;
+            border-bottom: 4px solid #71f6ff;
+        }
+        .btn:hover, .btn:focus{
+            background-color: #2face0;
+            border-bottom: 4px solid #afe2ff!important;}
+        
+        .svg-inline--fa{
+            font-size: 20px;
+            margin-right: 7px;
+        }
+        
+    </style>
 </head>
-
 <body>
-
-
-    <header class="d-flex align-items-center bg-white fixed-top px-3">
-        <button class="hamburger-btn btn mr-3" onclick="document.getElementById('side-menu').classList.toggle('open')">
-      <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style=" display: block; width: 24px; height: 24px;">
-        <g class="style-scope yt-icon">
-          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" class="style-scope yt-icon" fill="#a0a0a0"></path>
-        </g>
-      </svg>
-    </button>
-        <div class="mx-sm-5 flex-grow-1">
-            <div class="d-flex">
-
-                <img src="#" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
+    <div class="modal-dialog text-center">
+        <div class ="col-sm-8 main-section">
+            <div class="modal-content">
+                <div class="col-12 user-img">
+                    <img src="img/_free-icons_png_1042_190293.png">
+                </div>
+                <form action="validate/validate_user.php" method="post" class="col-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Enter Password">
+                    </div>
+                    <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>Login</button>
+                </form>
             </div>
-    </header>
-
-    <div id="page" class="d-flex mt-5 pt-3">
-    <?php include "sidebar.php"?>
-        <main class="content w-100">
-            <div class="container">
-                <div class="video-row">
-                    <div class="video-row-title my-4 ml-1">
-                        <h3>Today</h3>
-                    </div>
-                    <div class="d-flex pb-5 border-bottom">
-                        <div id="container1" class="col px-1 mr-3 container1">
-                            <div class="video">
-                                <div class="video-thumbnail"><h3>Tutorial</h3></div>
-                            </div>
-                        </div>
-                        <div id="container2" class="col px-1 mx-3 container2">
-                            <div class="video">
-                                <div class="video-thumbnail"><h3>Assignment</h3></div>
-                            </div>
-                        </div>
-                        <div id="container3" class="col px-1 ml-3 container3">
-                            <div class="video">
-                                <div  class="video-thumbnail"><a href ="practice.php"></a><h3>Leaderboard</h3></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="video-row">
-                    <div class="video-row-title my-4 ml-1">
-                        <h3>Graph</h3>
-                    </div>
-                    <div class="d-flex pb-5">
-                        <div class="col px-1">
-
-                            <div class="video">
-
-                                <div class="graph">
-                                    <img src="img/graph.png" height="100%" width="100%">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-        </main>
-        <div class="side-menu-backdrop" onclick="document.getElementById('side-menu').classList.toggle('open')"></div>
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="js/bootstrap.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="home.js"></script>
-
+    </div>
 </body>
-
 </html>

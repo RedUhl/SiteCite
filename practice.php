@@ -56,14 +56,23 @@
                 </div>
 
                 <!-- TODO: make this form editable -->
-                <label for="attempt">Correct the citation</label>
+                <label for="attempt">Correct the citation
+
+                    
+
+
+                </label>
                 <div class="toolbar">
                     <!-- TODO: get this to work again -->
                     <button class="btn" type="button" onclick="document.execCommand('italic', false, '');">I
                             </button></div>
-                <form class="main-form needs-validation" novalidate>
-                    <input type="text" id="incorrect_array" contenteditable="true" class="form-control" required>
-                    <div class="invalid-feedback">Incorrect</div>
+                <form action="validate/validate_answers.php" method="POST" class="main-form needs-validation" novalidate>
+                    <input type="hidden" name="citationID"/>
+                    <!-- <input type="text" id="incorrect_array" contenteditable="true" class="form-control" required> -->
+                    <!-- <div class="invalid-feedback">Incorrect</div> -->
+                    <input type="text" name="attempt"/>
+                  
+
 
                     <button id="submitBtn" type="button" class="btn btn-primary">Submit</button>
 
