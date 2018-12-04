@@ -96,9 +96,9 @@
                  </div>
               </div>
               <div style="border: thin red solid;" id="options" class="options"> opt. 
-                 <div style="border: thin maroon solid;" id="homeButton" class="button">H</div>
-                 <div style="border: thin maroon solid;" id="assignmentButton" class="button">A</div>
-                 <div style="border: thin maroon solid;" id="dataButton" class="active button">D</div>
+                 <div style="border: thin maroon solid;" id="homeButton" class="button">Home</div>
+                 <div style="border: thin maroon solid;" id="assignmentButton" class="button">Assignment</div>
+                 <div style="border: thin maroon solid;" id="dataButton" class="active button">Data</div>
               </div>
             </div>
         </main>
