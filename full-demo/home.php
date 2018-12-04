@@ -20,7 +20,7 @@
         <div class="mx-sm-5 flex-grow-1">
             <div class="d-flex">
 
-                <img src="<img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
+                <img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
             </div>
     </header>
 
