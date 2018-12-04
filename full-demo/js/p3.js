@@ -73,6 +73,7 @@ function updateProgress(netID){
         function frame() {
             if (percentage_complete >= 100) {
                 //clearInterval(id);
+                elem.innerHTML = '100%';
             } else {
                 percentage_complete++;
                 elem.style.width = percentage_complete + '%';
