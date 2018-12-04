@@ -1,5 +1,23 @@
 const desktopBreakpoint = 1200;
 const sideMenu = document.getElementById('side-menu');
+let debug = document.getElementById('debug');
+
+var login = new XMLHttpRequest();
+login.addEventListener("load",(evt)=>{
+	console.log(login.responseText);
+	if (login.responseText=="not logged in"){
+		//show login button
+		// hide logout button
+	}
+	else {
+		//hide login button
+		//show logout button
+		debug.innerHTML("Welcome "+login.responseText);
+	}
+}); 
+login.open('GET', 'checkLogin.php', true);
+login.send();
+
 
 function onResize() {
     const winWidth = window.innerWidth;

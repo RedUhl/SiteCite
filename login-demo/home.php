@@ -48,6 +48,7 @@
                         <div id="container1" class="col px-1 mr-3 container1">
                             <div class="video">
                                 <div class="video-thumbnail"><h3>Tutorial</h3></div>
+                                <div id="debug"></div>
                             </div>
                         </div>
                         <div id="container2" class="col px-1 mx-3 container2">
