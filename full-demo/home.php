@@ -1,13 +1,3 @@
-<?php
-
-// if(logged_in()){
-//     $username=$_SESSION['username'];
-// }else{
-//     redirect('login_form.php');
-// }
-
-?>
-
 <!DOCTYPE html>
 <html>
 
