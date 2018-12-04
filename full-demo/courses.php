@@ -26,80 +26,98 @@
     </header>
 
     <div id="page" class="d-flex mt-5 pt-3">
-    <?php include "sidebar.php"?>
+    <?php include "sidebar.php"?>     
+    
         <main class="content w-100">
-            <div class="container">
-              <div style="" id="center" class="center"> 
-                 <div style="border: thin grey solid;" id="top" class="top">
-                    <div>
-                       <div class="label" id = "topLabel">Select a course to display data:</div>
-                       <div style="margin-top: 3%;">
-                          <select class="selection" style="float: left; width: 15%;" id = "selectCourse">
+            <div class="container mt-5">
+              <div id="center" class=""> 
+
+               <!-- TOP BUTTONS -->
+              <div class="d-flex justify-content-start mb-3">        
+                  <button  id="assignmentButton" class="button btn btn-primary btn-lg mr-3">Assignment</button>
+                  <button  id="dataButton" class="active button btn btn-primary btn-lg ml-3">Data</button>
+               </div>
+
+
+                 <div id="top" class="top d-flex flex-row bd-highlight mb-3"><div>
+
+
+                     <div class="label p-2 bd-highlight" id = "topLabel">Select a course to display data:</div>
+                     <div class="p-2 bd-highlight">
+                          <select class="selection" id = "selectCourse">
                              <option value="" disabled selected>Course Code</option>
                              <option value="all">All courses</option>
                           </select>
-                          <div id="newAssignment" style="float: left; width: 20%; margin-left: 3%;"> How many citations? 
-                          </div> 
-                          <div><input type="number" style="float: left; width: 10%; margin-left: 0%;" class="disabled selection" id="quantity" value="9" min="1" max="500">
+                     </div>
+                          
+                     <div class="p-2 bd-highlight" id="newAssignment"> How many citations?</div>
+
+                     <div class="p-2 bd-highlight"><input type="number" class="disabled selection" id="quantity" value="9" min="1" max="500"></div> 
+                  
+                          <div class="p-2 bd-highlight"><button id="createButton" class="button btn btn-primary "> Create Assignment</div>
                           </div>
-                          <div id="createButton" class="button" style="float: left;width: 25%; margin: 0%; margin-left: 8%; margin-top: -.25em;"> Create Assignment
-                          </div>
-                          <div id="created" class="disabled" style="float: clear; margin-top: 3%;"> Assignment successfully created!
-                          </div>
-                       </div>
                     </div>
-                    
+                    <div id="created" class="disabled p-2 bd-highlight alert alert-success mx-300px"> Assignment successfully created!
+                          </div>
                  </div>
-                 <div id="left" class="left">
+
+               
+                 <div id="left" class="left mx-5 my-5">
                     <div>
                        <div class="label" id = "leftLabel">Students:</div>
 
-                       <table id="studentT" class="hidden" style="width:90%;">
-                         <tr>
-                          <th>NetID</th>
-                          <th>Name</th>
-                          <th>Citations Completed</th>
-                          <th>Weakness</th>
-                          <th>Strength</th>
-                         </tr>
-                       </table> 
+                       <table id="studentT" class="hidden table table-sm">
+                          <thead class="thead-dark">
+                           <tr>
+                              <th>NetID</th>
+                              <th>Name</th>
+                              <th>Citations Completed</th>
+                              <th>Weakness</th>
+                              <th>Strength</th>
+                           </tr>
+                         </thead>
+                        </table> 
 
-                       <table id="assignmentT" class="hidden" style="width:90%;">
+                       <table id="assignmentT" class="hidden table table-sm">
+                         <thead class="thead-dark">
                           <tr>
                           <th>Course Code</th>
                           <th>Course Name</th>
                           <th>Number of Citations Assigned</th>
                           </tr>
-                       </table> 
+                        </thead>
+                         </table> 
                     </div>
                  </div>
-                 <div style="border: thin grey solid;" id="right" class="right">
+                 
+                 <div id="right" class="right mx-5 my-5">
                     <div class="label" id = "rightLabel">Courses:</div>
-                    <table id="courseT" class="hidden" style="width:90%;">
+                     <table id="courseT" class="hidden table table-sm">
+                    <thead class="thead-dark">
                       <tr>
-                       <th>Course Code</th>
-                       <th>Course Name</th>
-                       <th>Citations Completed</th>
-                       <th>Weakness</th>
-                       <th>Strength</th>
+                       <th scrope="col">Course Code</th>
+                       <th scrope="col">Course Name</th>
+                       <th scrope="col">Citations Completed</th>
+                       <th scrope="col">Weakness</th>
+                       <th scrope="col">Strength</th>
                       </tr>
-                    </table> 
+                     </thead>
+                     </table> 
 
-                    <table id="progressT" class="hidden" style="width:90%;">
+                    <table id="progressT" class="hidden table table-sm">
+                     <thead class="thead-dark">
                       <tr>
-                       <th>Net ID</th>
-                       <th>Name</th>
-                       <th>Citations Completed</th>
-                       <th>Assignment Completed</th>
+                       <th scrope="col">Net ID</th>
+                       <th scrope="col">Name</th>
+                       <th scrope="col">Citations Completed</th>
+                       <th scrope="col">Assignment Completed</th>
                       </tr>
+                      </thead>
                     </table> 
-                 </div>
-              </div>
-              <div style="border: thin red solid;" id="options" class="options"> opt. 
-                 <div style="border: thin maroon solid;" id="homeButton" class="button">Home</div>
-                 <div style="border: thin maroon solid;" id="assignmentButton" class="button">Assignment</div>
-                 <div style="border: thin maroon solid;" id="dataButton" class="active button">Data</div>
-              </div>
+                        </div>
+                     </div>
+                  </div>
+          
             </div>
         </main>
         <div class="side-menu-backdrop" onclick="document.getElementById('side-menu').classList.toggle('open')"></div>
@@ -108,7 +126,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="js/bootstrap.js" crossorigin="anonymous"></script>
         <script src="js/home.js"></script>
-        <script type="text/javascript" src="js/data.js"></script>
+        <script src="js/data.js"></script>
 </body>
 
 </html>
