@@ -29,8 +29,6 @@
     <?php include "sidebar.php"?>
         <main class="content w-100">
             <div class="container">
-              <div style="border: thin pink solid;" id="header" class="header"> header </div>
-
               <div style="" id="center" class="center"> 
                  <div style="border: thin grey solid;" id="top" class="top">
                     <div>
@@ -102,8 +100,6 @@
                  <div style="border: thin maroon solid;" id="assignmentButton" class="button">A</div>
                  <div style="border: thin maroon solid;" id="dataButton" class="active button">D</div>
               </div>
-              <div style="border: thin red solid;" id="options2" class="options2"> opt. </div>
-              <div style="border: thin teal solid;" id="footer" class="footer"> footer </div>
             </div>
         </main>
         <div class="side-menu-backdrop" onclick="document.getElementById('side-menu').classList.toggle('open')"></div>

@@ -10,7 +10,7 @@ function devOpenDb($hostname,$uid,$pwd,$database){
     return(FALSE);
   }
 }
-// Should be pluto DB link
+// Should be DB link
 $dblink = devOpenDb("localhost","kbb269", "gr33nt3a", "kbb269");
 
 function executeQuery($link,$sql){
