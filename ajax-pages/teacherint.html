@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html> 
+<head>
+   <meta charset="utf-8"/>
+   <title></title>
+   <link href="teacherint.css" type="text/css" rel="stylesheet" media="all" />
+</head>
+<body>
+   <div id = "main" class="main">
+      <div style="border: thin pink solid;" id="header" class="header"> header </div>
+
+      <div style="" id="center" class="center"> 
+         <div style="border: thin grey solid;" id="top" class="top">
+            <div>
+               <div class="label" id = "topLabel">Select a course to display data:</div>
+               <div style="margin-top: 3%;">
+                  <select class="selection" style="float: left; width: 15%;" id = "selectCourse">
+                     <option value="" disabled selected>Course Code</option>
+                     <option value="all">All courses</option>
+                  </select>
+                  <div id="newAssignment" style="float: left; width: 20%; margin-left: 3%;"> How many citations? 
+                  </div> 
+                  <div><input type="number" style="float: left; width: 10%; margin-left: 0%;" class="disabled selection" id="quantity" value="9" min="1" max="500">
+                  </div>
+                  <div id="createButton" class="button" style="float: left;width: 25%; margin: 0%; margin-left: 8%; margin-top: -.25em;"> Create Assignment
+                  </div>
+                  <div id="created" class="disabled" style="float: clear; margin-top: 3%;"> Assignment successfully created!
+                  </div>
+               </div>
+            </div>
+            
+         </div>
+         <div id="left" class="left">
+            <div>
+               <div class="label" id = "leftLabel">Students:</div>
+
+               <table id="studentT" class="hidden" style="width:90%;">
+                 <tr>
+                  <th>NetID</th>
+                  <th>Name</th>
+                  <th>Citations Completed</th>
+                  <th>Weakness</th>
+                  <th>Strength</th>
+                 </tr>
+               </table> 
+
+               <table id="assignmentT" class="hidden" style="width:90%;">
+                  <tr>
+                  <th>Course Code</th>
+                  <th>Course Name</th>
+                  <th>Number of Citations Assigned</th>
+                  </tr>
+               </table> 
+            </div>
+         </div>
+         <div style="border: thin grey solid;" id="right" class="right">
+            <div class="label" id = "rightLabel">Courses:</div>
+            <table id="courseT" class="hidden" style="width:90%;">
+              <tr>
+               <th>Course Code</th>
+               <th>Course Name</th>
+               <th>Citations Completed</th>
+               <th>Weakness</th>
+               <th>Strength</th>
+              </tr>
+            </table> 
+
+            <table id="progressT" class="hidden" style="width:90%;">
+              <tr>
+               <th>Net ID</th>
+               <th>Name</th>
+               <th>Citations Completed</th>
+               <th>Assignment Completed</th>
+              </tr>
+            </table> 
+         </div>
+      </div>
+      <div style="border: thin red solid;" id="options" class="options"> opt. 
+         <div style="border: thin maroon solid;" id="homeButton" class="button">H</div>
+         <div style="border: thin maroon solid;" id="assignmentButton" class="button">A</div>
+         <div style="border: thin maroon solid;" id="dataButton" class="active button">D</div>
+      </div>
+      <div style="border: thin red solid;" id="options2" class="options2"> opt. </div>
+      <div style="border: thin teal solid;" id="footer" class="footer"> footer </div>
+   </div>
+</body>
+<script type="text/javascript" src="data.js"></script>
+<!-- <script type="text/javascript" src="assignment.js"></script> -->
+</html>
