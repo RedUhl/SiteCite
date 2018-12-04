@@ -1,5 +1,6 @@
 # SiteCite 
-##APA Citation Checker
+## APA Citation Checker
+[Pluto deployment](http://pluto.cse.msstate.edu/~kbb269/demo)
 
 > For the most recent changes, pull & deploy full_demo. Every necessary file is there.
 
