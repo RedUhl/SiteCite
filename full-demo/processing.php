@@ -81,8 +81,7 @@ if (isset($_POST['requestCitation'])) {
     $ignore = (string)$_POST['requestCitation'];
     $citationQ = " SELECT citation FROM Citation";
     $resultCitation = executeQuery($dblink, $citationQ);
-
-    echo json_encode($assignVal);
+    echo json_encode($resultCitation);
   }
 }
 

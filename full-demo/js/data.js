@@ -61,7 +61,7 @@ function clearTable(table){
 
 function create_request(constructed_request, callback){
    var request = new XMLHttpRequest();
-   request.open('POST', 'teacherint.php', true);
+   request.open('POST', 'processing.php', true);
    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
    request.addEventListener("load",(evt)=>{
       callback(request.responseText);
