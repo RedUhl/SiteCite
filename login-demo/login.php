@@ -6,7 +6,7 @@ require_once('./inc/CAS/1.3.5/casAuth.php');
 
 if (isset($_SESSION['phpCAS']['user'])){
   //echo $_SESSION['phpCAS']['user'];
-  header('location: main.html');
+  header('location: home.php');
 }
 
 ?>
