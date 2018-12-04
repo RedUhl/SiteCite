@@ -88,13 +88,13 @@
 <body>
     <div class="modal-dialog text-center">
         <div class ="col-sm-8 main-section">
-            <div class="modal-content">
+            <div class="modal-content d-flex justify-content-center">
                 <div class="col-12 user-img">
                     <img src="img/_free-icons_png_1042_190293.png">
                 </div>
-
+                <div>
                 <button type="submit" class="btn" id="loginButton"><i class="fas fa-sign-in-alt"></i>Login</button>
-
+                </div>
             </div>
         </div>
     </div>
