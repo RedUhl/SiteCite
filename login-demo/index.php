@@ -99,4 +99,5 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="login.js"></script>
 </html>
