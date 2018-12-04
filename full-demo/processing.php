@@ -28,11 +28,23 @@ function executeQuery($link,$sql){
   }
 }
 
-
 if (isset($_POST['enum']) && $_POST['enum'] == "courses") {
   $sql = " SELECT courseCode, courseName FROM Courses";
   $result = executeQuery($dblink, $sql);
   echo json_encode($result);
+}
+
+if (isset($_POST['requestCitation'])){
+  if ($_POST['requestCitation'] != "incorrect"){
+    $origSQL = " SELECT citationID FROM Citations";
+    $origresult = executeQuery($dblink, $origSQL);
+    $citation_size = sizeof($origresult);
+    $random_cite = rand(1,$citation_size);
+
+    $citeSQL = "SELECT citation FROM Citations WHERE citationID='".$random_cite."'";
+    $citeresult = executeQuery($dblink, $citeSQL);
+    echo json_encode($citeresult);
+  }
 }
 
 if (isset($_POST['listCourseInformation'])) {
@@ -73,15 +85,6 @@ if (isset($_POST['listAssignmentInformation'])) {
     $assignVal['progress'] = $resultProg;
     $assignVal['info'] = $resultLazy;
     echo json_encode($assignVal);
-  }
-}
-
-if (isset($_POST['requestCitation'])) {
-  if ($_POST['requestCitation'] != "course"){
-    $ignore = (string)$_POST['requestCitation'];
-    $citationQ = " SELECT citation FROM Citation";
-    $resultCitation = executeQuery($dblink, $citationQ);
-    echo json_encode($resultCitation);
   }
 }
 

@@ -7,7 +7,7 @@ let incorrect_array = ["Agius, N. M., & Wilkinson, A. (2014) Students' and teach
 
 // Change to false to disable the console logs
 let debug_mode = true;
-let num_cites = 3;
+//let num_cites = 3;
 
 //Report Modal 
 //TODO:Make modal textbox fixed and connect submit button
@@ -27,32 +27,21 @@ var hintButton = document.getElementById("hintButton");
 var submitButton = document.getElementById("submitBtn");
 var form = document.querySelector('.needs-validation');
 
-// updating these here so they start w correct value
-// attempt.innerText = incorrect_array[current];
-problem.value = correct_array[current];
-citation.innerText = incorrect_array[current];
 
-// Logs the correct citation so it can be pasted into the input for easy testing
+function setup(){
+    updateCitations();
+}
 
-
-
-// Events
-// if (debug_mode) {
-//     console.log(correct_array[current]);
-// }
-
-// modalBtn.addEventListener('click', () => {
-//     modal.style.display = 'block';
-// });
-// closeBtn.addEventListener('click', () => {
-//     modal.style.display = 'none';
-// });
-// //close modal on outside click
-// window.addEventListener('click', (e) => {
-//     if (e.target == modal) {
-//         modal.style.display = 'none';
-//     }
-// });
+function create_request(constructed_request, callback){
+   var request = new XMLHttpRequest();
+   request.open('POST', 'processing.php', true);
+   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+   request.addEventListener("load",(evt)=>{
+      callback(request.responseText);
+      //console.log(request.responseText);
+   });      
+   request.send(constructed_request);
+}
 
 //Progressbar increment
 function progress() {
@@ -69,6 +58,15 @@ function progress() {
             elem.innerHTML = width * 1 + '%';
         }
     }
+}
+
+function updateCitations(){
+    let citationRequest = "requestCitation=request";
+    let returnedCite = create_request(citationRequest, (returnedCite)=>{
+        returnedCite = JSON.parse(returnedCite);
+        citation.innerHTML = returnedCite[0].citation;
+        problem.innerHTML = returnedCite[0].citation;
+    });
 }
 
 hintButton.addEventListener('click', () => {
@@ -92,56 +90,17 @@ hintButton.addEventListener('click', () => {
 
 
 resetButton.addEventListener('click', () => {
-    console.log("yes yes yes");
-    problem.value = correct_array[current];
+
 });
-
-
 
 
 submitButton.addEventListener('click', () => {
-    // TODO: need to add class check to make sure they are active 
-    if (problem.value == correct_array[current]) {
-        if (debug_mode) {
-            console.log("Correct");
-            hintVal = 0;
-            progress();
-        }
-        current += 1;
-
-        //a temporary measure to make cites loop endlessly lol
-        if (current == num_cites) {
-            current = 0;
-        }
-        problem.value = correct_array[current];
-        citation.innerText = incorrect_array[current];
-        if (debug_mode) {
-            console.log(correct_array[current]);
-        }
-    } else if (problem.value == citation.innerText) {
-        if (debug_mode) {
-            console.log("no change");
-        }
-    } else if (problem.value != correct_array[current]) {
-        if (debug_mode) {
-            console.log("incorrect");
-        }
-        hintButton.classList.add("active");
-    }
+    updateCitations();
 });
 
-// //     prevents page from reloading when validating 
-// //    TODO: figure out how to validate 
-
-// form.addEventListener('submit', function(event) {
-//     if (form.checkValidity() === false) {
-//         event.preventDefault();
-//         event.stopPropagation();
-//     }
-//     form.classList.add('was-validated');
-// });
-// disables the buttons unless the user has made a change.
 problem.addEventListener("input", () => {
     submitButton.classList.add("active");
     resetButton.classList.add("active");
 });
+
+setup();

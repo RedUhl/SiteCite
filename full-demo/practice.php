@@ -66,7 +66,7 @@
                     <button class="btn" type="button" onclick="document.execCommand('italic', false, '');">I
                             </button></div>
                 <form class="main-form needs-validation" novalidate>
-                    <input type="text" id="incorrect_array" contenteditable="true" class="form-control" required>
+                    <div id="incorrect_array" contenteditable="true" class="form-control" required></div>
                     <div class="invalid-feedback">Incorrect</div>
 
                     <button id="submitBtn" type="button" class="btn btn-primary">Submit</button>

@@ -16,6 +16,9 @@ let topLabel = document.getElementById('topLabel');
 let leftLabel = document.getElementById('leftLabel');
 let rightLabel = document.getElementById('rightLabel');
 let activeButton = "home";
+//for practice page
+let PPcitation = document.getElementById('PPcitation');
+
 let courses = "";
 
 function setup(){
