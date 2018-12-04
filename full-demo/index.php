@@ -84,16 +84,17 @@
         }
         
     </style>
+    <title>APA Cite Rite</title>
 </head>
 <body>
-    <div class="modal-dialog text-center">
+    <div style="margin-top: 5%;" class="modal-dialog text-center">
+        <div id="welcomeLabel" style="margin-top: 5%; font-size: 3.5em;"> Welcome to <br /> APA Cite Rite </div>
         <div class ="col-sm-8 main-section">
             <div class="modal-content">
                 <div class="col-12 user-img">
                     <img src="img/_free-icons_png_1042_190293.png">
                 </div>
-
-                <button type="submit" class="btn" id="loginButton"><i class="fas fa-sign-in-alt"></i>Login</button>
+                <button type="submit" class="col-12 btn" style="margin-top: -5%;" id="loginButton"><i class="fas fa-sign-in-alt"></i>Login</button>
 
             </div>
         </div>

@@ -4,6 +4,10 @@ body {
     height: 1500px;
 }
 
+.hidden {
+    display: none;
+}
+
 .bg-gray {
     background-color: #e3e3e3;
 }

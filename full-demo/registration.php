@@ -32,6 +32,7 @@
     <body>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
+        <div style="background-color: #e8f4f8; padding: 10%;">
         <div class="container">
     	    <div class="row">
 			    <div class="col-md-6 col-md-offset-3">
@@ -41,7 +42,7 @@
 							    <div class="col-lg-12">
 								    <form id="login-form"  method="post" role="form" style="display: block;">
 									    <div class="form-group">
-										    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" required>
+										    <input type="text" name="name" id="nameInput" tabindex="1" class="form-control" placeholder="Input your name" required>
 									    </div>
 									    <div class="form-group">
 										    <!-- <input type="course" name="course" id="course" tabindex="2" class="form-control" placeholder="Course" required> -->
@@ -67,6 +68,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </body>
 </html>

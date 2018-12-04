@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/home.css" />
-
+    <title>APA Cite Rite</title>
 </head>
 
 <body>
@@ -19,10 +19,16 @@
     </button>
         <div class="mx-sm-5 flex-grow-1">
             <div class="d-flex justify-content-end">
-                <img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
+                <button class="btn mr-3" onclick="document.getElementById('tutorialPopup').classList.toggle('hidden')">
+                    Example Citation  
+                </button>
+                <!-- <img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" /> -->
             </div>
     </header>
-
+    <div id="tutorialPopup" class="hidden" style="float: right; clear: both; border: thin grey solid;">
+        <img src="img/apa_example.png" class="mx-2"/> <br />
+        <button class="btn mr-3" onclick="document.getElementById('tutorialPopup').classList.add('hidden')">Hide</button>
+    </div>
     <div id="page" class="d-flex mt-5 pt-3">
         <aside id="side-menu" class="mobile open">
             <div class="side-menu-header d-flex align-items-center pl-3">
@@ -63,7 +69,7 @@
                 <label for="attempt">Correct the citation</label>
                 <div class="toolbar">
                     <!-- TODO: get this to work again -->
-                    <button class="btn" type="button" onclick="document.execCommand('italic', false, '');">I
+                    <button class="btn" type="button" onclick="document.execCommand('italic', false, '');">Italicize
                             </button></div>
                 <form class="main-form needs-validation" novalidate>
                     <div id="incorrect_array"  style="text-indent: -1.5em; padding-left: 3em; font-size: 2em;" contenteditable="true" class="form-control" required></div>

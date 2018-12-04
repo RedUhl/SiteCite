@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link href="css/teacherint.css" type="text/css" rel="stylesheet" media="all" />
-
+    <title>APA Cite Rite</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         <div class="mx-sm-5 flex-grow-1">
             <div class="d-flex">
 
-                <img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
+                <!-- <img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" /> -->
             </div>
     </header>
 

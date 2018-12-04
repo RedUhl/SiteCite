@@ -14,8 +14,8 @@ let quantity = document.getElementById('quantity');
 let topLabel = document.getElementById('topLabel');
 let leftLabel = document.getElementById('leftLabel');
 let rightLabel = document.getElementById('rightLabel');
-let activeButton = "home";
-
+let activeButton = "assignment";
+let tutorialButton = document.getElementById('tutorialButton');
 
 let courses = "";
 
@@ -33,6 +33,7 @@ function setup(){
       selectCourse.value = "";
    });
    update_Page();
+   assignment_Table("all");
 }
 
 function toTable(data, tablename){
