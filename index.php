@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream:index.php
 // $connection = new mysqli($hn, $un, $pw, $db);
 // if ($_SERVER['REQUEST_METHOD']=='POST') {
 //     $username=$_POST['username'];
@@ -32,6 +33,41 @@
 //     $username="";
 //     $password="";
 // }
+=======
+$connection = new mysql($hn, $un, $pw, $db);
+if ($_SERVER['REQUEST_METHOD']=='POST') {
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+    if (isset($_POST['remember'])) {
+        $remember = "on";
+    } else {
+        $remember = "off";
+    }
+    //count_field_val doesn't exist, calls and checks if value exists can replace with token check
+    if (count_field_val($pdo, "users", "username", $username)>0) {
+        $user_data = return_field_data($pdo, "users", "username", $username);
+        if ($user_data['active']==1) {
+            if (password_verify($password, $user_data['password'])) {
+                set_msg("Logged in successfully", "success");
+                $_SESSION['username']=$username;
+                if ($remember="on") {
+                    setcookie("username", $username, time()+86400);
+                }
+                redirect("home.html");
+            } else {
+                set_msg("Password is invalid");
+            }
+        } else {
+            set_msg("User '{$username}' found but has not been activated");
+        }
+    } else {
+        set_msg("User '{$username}' does not exist");
+    }
+} else {
+    $username="";
+    $password="";
+}
+>>>>>>> Stashed changes:login_form.php
 ?>
 
 
@@ -131,15 +167,15 @@
                 <div class="col-12 user-img">
                     <img src="img/_free-icons_png_1042_190293.png">
                 </div>
-                <form action="home.php" method="post" class="col-12">
+                <!-- <form action="home.php" method="post" class="col-12">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Enter Username">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" placeholder="Enter Password">
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i>Login</button>
-                </form>
+                <!-- </form> -->
             </div>
         </div>
     </div>
