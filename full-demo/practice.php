@@ -1,20 +1,10 @@
-<?php include "Database/studentsfunctions.php" ?>
-<?php
-
-// if(logged_in()){
-//     $username=$_SESSION['username'];
-// }else{
-//     redirect('login_form.php');
-// }
-
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="home.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/home.css" />
 
 </head>
 
@@ -29,7 +19,6 @@
     </button>
         <div class="mx-sm-5 flex-grow-1">
             <div class="d-flex justify-content-end">
-                <!-- TODO: create drop down menu, add theme selection -->
                 <img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
             </div>
     </header>
@@ -46,12 +35,14 @@
         </button>
             </div>
             <div class="side-menu-body">
-                <div class="list-group">
+                <?php include "sidebar.php"?>
+<!--                  <div class="list-group">
+
                     <a href="home.php" class="list-group-item d-flex align-items-center active">
                         <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon mr-3" style=" display: block; width: 24px; height: 24px;"><g class="style-scope yt-icon">
                                 <path d="M18.121,9.88l-7.832-7.836c-0.155-0.158-0.428-0.155-0.584,0L1.842,9.913c-0.262,0.263-0.073,0.705,0.292,0.705h2.069v7.042c0,0.227,0.187,0.414,0.414,0.414h3.725c0.228,0,0.414-0.188,0.414-0.414v-3.313h2.483v3.313c0,0.227,0.187,0.414,0.413,0.414h3.726c0.229,0,0.414-0.188,0.414-0.414v-7.042h2.068h0.004C18.331,10.617,18.389,10.146,18.121,9.88 M14.963,17.245h-2.896v-3.313c0-0.229-0.186-0.415-0.414-0.415H8.342c-0.228,0-0.414,0.187-0.414,0.415v3.313H5.032v-6.628h9.931V17.245z M3.133,9.79l6.864-6.868l6.867,6.868H3.133z"></path>
                             </svg>
-                        <!-- TODO: fix the home button -->
+                         TODO: fix the home button 
                         <span>Home</span>
                     </a>
                     <a href="practice.php" class="list-group-item d-flex align-items-center">
@@ -69,9 +60,7 @@
                 </div>
 
                 </a>
-            </div>
-
-
+            </div> --> 
 
         </aside>
 
@@ -106,7 +95,6 @@
 
                     <button id="submitBtn" type="button" class="btn btn-primary">Submit</button>
 
-
                 </form>
                 <button id="resetBtn" type="button" class="btn btn-secondary">Reset</button>
                 <button id="hintButton" type="button" class="btn btn-secondary">Hint</button>
@@ -133,10 +121,10 @@
         <div class="side-menu-backdrop" onclick="document.getElementById('side-menu').classList.toggle('open')"></div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js" crossorigin="anonymous"></script>
     <script src="home.js"></script>
-    <script src="P3.js"></script>
+    <script src="p3.js"></script>
 
 
 </body>

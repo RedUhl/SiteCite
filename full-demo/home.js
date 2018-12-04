@@ -1,6 +1,6 @@
 const desktopBreakpoint = 1200;
 const sideMenu = document.getElementById('side-menu');
-let debug = document.getElementById('debug');
+//let debug = document.getElementById('debug');
 
 var login = new XMLHttpRequest();
 login.addEventListener("load",(evt)=>{
@@ -12,7 +12,7 @@ login.addEventListener("load",(evt)=>{
 	else {
 		//hide login button
 		//show logout button
-		debug.innerHTML("Welcome "+login.responseText);
+		//debug.innerHTML="Welcome "+login.responseText;
 	}
 }); 
 login.open('GET', 'checkLogin.php', true);
