@@ -9,8 +9,6 @@
 </head>
 
 <body>
-
-
     <header class="d-flex align-items-center bg-white fixed-top px-3">
         <button class="hamburger-btn btn mr-3" onclick="document.getElementById('side-menu').classList.toggle('open')">
       <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope yt-icon" style=" display: block; width: 24px; height: 24px;">
@@ -22,7 +20,7 @@
         <div class="mx-sm-5 flex-grow-1">
             <div class="d-flex">
 
-                <img src="#" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
+                <img src="<img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" />
             </div>
     </header>
 
