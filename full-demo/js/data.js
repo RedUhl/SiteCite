@@ -8,7 +8,6 @@ let progressT = document.getElementById('progressT');
 let debug = document.getElementById('debug');
 let assignmentButton = document.getElementById('assignmentButton');
 let dataButton = document.getElementById('dataButton');
-let homeButton = document.getElementById('homeButton');
 let createButton = document.getElementById('createButton');
 let created = document.getElementById('created');
 let quantity = document.getElementById('quantity');
@@ -16,8 +15,7 @@ let topLabel = document.getElementById('topLabel');
 let leftLabel = document.getElementById('leftLabel');
 let rightLabel = document.getElementById('rightLabel');
 let activeButton = "home";
-//for practice page
-let PPcitation = document.getElementById('PPcitation');
+
 
 let courses = "";
 
@@ -321,7 +319,6 @@ function update_Page(){
       createButton.classList.remove('disabled');
       assignmentButton.classList.add('active');
       dataButton.classList.remove('active');
-      homeButton.classList.remove('active');
    }
    if (activeButton == "data"){
       selectCourse.classList.remove('disabled');
@@ -339,23 +336,6 @@ function update_Page(){
       createButton.classList.add('disabled');
       assignmentButton.classList.remove('active');
       dataButton.classList.add('active');
-      homeButton.classList.remove('active');
-   }
-   if (activeButton == "home"){
-      progressT.classList.add('disabled');
-      studentT.classList.add('disabled');
-      courseT.classList.add('disabled');
-      newAssignment.classList.add('disabled');
-      assignmentT.classList.add('disabled');
-      topLabel.innerHTML="Welcome";
-      quantity.classList.add('disabled');
-      leftLabel.innerHTML = "Assignment Statistics:";
-      rightLabel.innerHTML = "Placeholder:";
-      createButton.classList.add('disabled');
-      assignmentButton.classList.remove('active');
-      dataButton.classList.remove('active');
-      homeButton.classList.add('active');
-      selectCourse.classList.add('disabled');
    }
 }
 
@@ -375,10 +355,6 @@ dataButton.addEventListener("click",(evt)=>{
    update_Page();
 });
 
-homeButton.addEventListener("click",(evt)=>{
-   activeButton = "home";
-   update_Page();
-});
 
 selectCourse.addEventListener("change", (evt)=>{
    if (activeButton == "data"){
