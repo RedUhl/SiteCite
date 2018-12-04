@@ -1,10 +1,12 @@
 const desktopBreakpoint = 1200;
 const sideMenu = document.getElementById('side-menu');
+
 //let debug = document.getElementById('debug');
 
 var login = new XMLHttpRequest();
 login.addEventListener("load",(evt)=>{
-	console.log(login.responseText);
+	//console.log(login.responseText);
+	netID = login.responseText;
 	if (login.responseText=="not logged in"){
 		//show login button
 		// hide logout button

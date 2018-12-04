@@ -13,6 +13,7 @@ function devOpenDb($hostname,$uid,$pwd,$database){
 // Should be DB link
 $dblink = devOpenDb("localhost","kbb269", "gr33nt3a", "kbb269");
 
+
 function executeQuery($link,$sql){
   $result = mysql_query($sql,$link);
   if($result == false){ 
@@ -36,14 +37,34 @@ if (isset($_POST['enum']) && $_POST['enum'] == "courses") {
 
 if (isset($_POST['requestCitation'])){
   if ($_POST['requestCitation'] != "incorrect"){
-    $origSQL = " SELECT citationID FROM Citations";
-    $origresult = executeQuery($dblink, $origSQL);
-    $citation_size = sizeof($origresult);
-    $random_cite = rand(1,$citation_size);
+    // $origSQL = " SELECT citationID FROM Citations";
+    // $origresult = executeQuery($dblink, $origSQL);
+    // $citation_size = sizeof($origresult);
+    // $random_cite = rand(1,($citation_size-1));
+    //hard-coding for demo because there is still a random bug
+    $random_cite = rand(0,15);
 
     $citeSQL = "SELECT citation FROM Citations WHERE citationID='".$random_cite."'";
     $citeresult = executeQuery($dblink, $citeSQL);
     echo json_encode($citeresult);
+  }
+}
+
+if (isset($_POST['updating_progress'])) {
+  if ($_POST['updating_progress'] != "false"){
+    //$studentID = $_SESSION['phpCAS']['user'];
+    $progA = array();
+    $progA['studentID'] = (string)$_POST['updating_progress'];
+
+    $sqlUpProg = " SELECT courseID, completedcitations FROM Students WHERE studentID='".$progA['studentID']."'";
+    $resultUpProg = executeQuery($dblink, $sqlUpProg);
+    $progA['course'] = $resultUpProg;
+
+    $sqlUpProg2 = " SELECT assignment FROM Courses WHERE courseID='".$progA['course'][courseID]."'";
+    $resultUpProg2 = executeQuery($dblink, $sqlUpProg2);
+    $progA['assignment'] = $resultUpProg2;
+    echo json_encode($progA);
+    //var_dump($studentID);
   }
 }
 

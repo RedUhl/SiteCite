@@ -53,7 +53,7 @@
                     <div class="d-flex pb-5">
                         <div class="col px-1">
                             <div class="video">
-                                <div id="citation" class="graph"></div>
+                                <div id="citation" class="graph" style="text-indent: -1.5em; padding-left: 3em; font-size: 2em;"></div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <button class="btn" type="button" onclick="document.execCommand('italic', false, '');">I
                             </button></div>
                 <form class="main-form needs-validation" novalidate>
-                    <div id="incorrect_array" contenteditable="true" class="form-control" required></div>
+                    <div id="incorrect_array"  style="text-indent: -1.5em; padding-left: 3em; font-size: 2em;" contenteditable="true" class="form-control" required></div>
                     <div class="invalid-feedback">Incorrect</div>
 
                     <button id="submitBtn" type="button" class="btn btn-primary">Submit</button>

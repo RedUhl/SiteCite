@@ -8,7 +8,7 @@ let incorrect_array = ["Agius, N. M., & Wilkinson, A. (2014) Students' and teach
 // Change to false to disable the console logs
 let debug_mode = true;
 //let num_cites = 3;
-
+let netID = "1";
 //Report Modal 
 //TODO:Make modal textbox fixed and connect submit button
 // Get DOM Elements
@@ -30,6 +30,7 @@ var form = document.querySelector('.needs-validation');
 
 function setup(){
     updateCitations();
+    updateProgress(netID);
 }
 
 function create_request(constructed_request, callback){
@@ -58,6 +59,27 @@ function progress() {
             elem.innerHTML = width * 1 + '%';
         }
     }
+}
+
+
+function updateProgress(netID){
+    let constructed_requestA = "updating_progress="+netID;
+    let returned_dataA = create_request(constructed_requestA, (returned_dataA)=>{
+        returned_dataA = JSON.parse(returned_dataA);
+        //console.log(returned_dataA);
+        let percentage_complete = (parseInt(returned_dataA.course[0].completedcitations) / parseInt(returned_dataA.assignment[0].assignment)) * 100;
+        var elem = document.getElementById("myBar");
+        var id = setInterval(frame, 10);
+        function frame() {
+            if (percentage_complete >= 100) {
+                //clearInterval(id);
+            } else {
+                percentage_complete++;
+                elem.style.width = percentage_complete + '%';
+                elem.innerHTML = percentage_complete * 1 + '%';
+            }
+        }
+   }); 
 }
 
 function updateCitations(){
