@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 
 function devOpenDb($hostname,$uid,$pwd,$database){
   $link = mysql_connect($hostname,$uid,$pwd);
@@ -13,7 +11,7 @@ function devOpenDb($hostname,$uid,$pwd,$database){
   }
 }
 // Should be pluto DB link
-$dblink = devOpenDb("localhost","kenna","swarch2018","citerite");
+$dblink = devOpenDb("localhost","kbb269", "gr33nt3a", "kbb269");
 
 function executeQuery($link,$sql){
   $result = mysql_query($sql,$link);

@@ -1,4 +1,4 @@
-
+//TODO: MAKE TITLES FOR PAGES
 let loginButton = document.getElementById('loginButton');
 
 loginButton.addEventListener("click",(evt)=>{
