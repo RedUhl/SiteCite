@@ -90,12 +90,13 @@
     <div style="margin-top: 5%;" class="modal-dialog text-center">
         <div id="welcomeLabel" style="margin-top: 5%; font-size: 3.5em;"> Welcome to <br /> APA Cite Rite </div>
         <div class ="col-sm-8 main-section">
-            <div class="modal-content">
+            <div class="modal-content justify-content-center">
                 <div class="col-12 user-img">
                     <img src="img/_free-icons_png_1042_190293.png">
                 </div>
+                <div>
                 <button type="submit" class="col-12 btn" style="margin-top: -5%;" id="loginButton"><i class="fas fa-sign-in-alt"></i>Login</button>
-
+                </div>
             </div>
         </div>
     </div>
