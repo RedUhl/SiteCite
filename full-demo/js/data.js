@@ -277,19 +277,19 @@ function assignment_Table(courseSelection){
          "studentName":returned_dataA.progress[i].name, 
          "completedcitations":parseInt(returned_dataA.progress[i].completedcitations), 
          "assignment": ""
-      };
+         };
 
          //TODO DEBUG
          for (var j = 0; j < returned_dataA.info.length; j++){
-            if (returned_dataA.progress[i].courseID == returned_dataA.info[j].courseID){
-               if(progressObj.completedcitations >= returned_dataA.info[j].assignment){
+            if (parseInt(returned_dataA.progress[i].courseID) == parseInt(returned_dataA.info[j].courseID)){
+               if(progressObj.completedcitations >= parseInt(returned_dataA.info[j].assignment)){
                   progressObj.assignment = "✓";
                }
-               if(progressObj.completedcitations < returned_dataA.info[j].assignment){
+               if(progressObj.completedcitations < parseInt(returned_dataA.info[j].assignment)){
                   progressObj.assignment = "྾";
                }
                else{
-                  progressObj.assignment = "";
+                  //progressObj.assignment = "";
                }
             }
          }
