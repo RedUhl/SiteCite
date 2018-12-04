@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 
 </head>
 
@@ -36,7 +36,6 @@
                         <div id="container1" class="col px-1 mr-3 container1">
                             <div class="video">
                                 <div class="video-thumbnail"><h3>Tutorial</h3></div>
-                                <div id="debug"></div>
                             </div>
                         </div>
                         <div id="container2" class="col px-1 mx-3 container2">
@@ -74,7 +73,7 @@
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="js/bootstrap.js" crossorigin="anonymous"></script>
-        <script src="home.js"></script>
+        <script src="js/home.js"></script>
 
 </body>
 

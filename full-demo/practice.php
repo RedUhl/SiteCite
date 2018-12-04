@@ -123,8 +123,8 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="js/bootstrap.js" crossorigin="anonymous"></script>
-    <script src="home.js"></script>
-    <script src="p3.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/p3.js"></script>
 
 
 </body>
