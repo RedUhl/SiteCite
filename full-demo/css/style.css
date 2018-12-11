@@ -104,7 +104,6 @@ aside .list-group-item {
     border: none;
     background-color: inherit;
 }
-
 aside .list-group-item .yt-icon path {
     fill: #e7e7e7;
 }
@@ -123,6 +122,12 @@ aside .list-group-item:hover:nth-child(3) {
     background-color: #2cd5ff;
     color: black;
 }
+
+aside .list-group-item:hover:nth-child(5) {
+    background-color: #ffc107;
+    color: black;
+}
+
 
 aside .list-group-item:hover .yt-icon path {
     fill: #000000;

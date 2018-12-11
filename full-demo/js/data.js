@@ -299,6 +299,7 @@ function assignment_Table(courseSelection){
    }); 
 }
 
+
 function update_Page(){
    clearTable(studentT);
    clearTable(courseT);

@@ -20,7 +20,6 @@
     </button>
         <div class="mx-sm-5 flex-grow-1">
             <div class="d-flex">
-
                 <!-- <img src="https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg" class="rounded-circle mx-2 flex-shrink-0" style="width: 32px; height: 32px;" /> -->
             </div>
     </header>
@@ -122,11 +121,9 @@
         </main>
         <div class="side-menu-backdrop" onclick="document.getElementById('side-menu').classList.toggle('open')"></div>
         </div>
-
+</body>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="js/bootstrap.js" crossorigin="anonymous"></script>
         <script src="js/home.js"></script>
         <script src="js/data.js"></script>
-</body>
-
 </html>

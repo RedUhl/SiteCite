@@ -68,6 +68,18 @@ if (isset($_POST['updating_progress'])) {
   }
 }
 
+//TODO finish or something
+if (isset($_POST['updatingLeaderboard'])) {
+  if ($_POST['updatingLeaderboard'] != "false"){
+    $leaderboard = array();
+    $sqlUpLB = " SELECT name, completedcitations FROM Students";
+    $resultLB = executeQuery($dblink, $sqlUpLB);
+    $leaderboard['completedcitations'] = $resultLB;
+    echo json_encode($leaderboard);
+    //var_dump($studentID);
+  }
+}
+
 if (isset($_POST['listCourseInformation'])) {
   if ($_POST['listCourseInformation'] != "course"){
     $codeCourse = (string)$_POST['listCourseInformation'];
